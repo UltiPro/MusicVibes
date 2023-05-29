@@ -4,18 +4,30 @@
         <Style.Setters>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate>
+                    <ControlTemplate TargetType="RadioButton">
                         <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{TemplateBinding Background}">
-                            <TextBlock Text="Hello" VerticalAlignment="Stretch"/>
+                            <TextBlock Text="{TemplateBinding Property=Content}" 
+                                       VerticalAlignment="Stretch" 
+                                       Margin="0,5,0,10" 
+                                       Foreground="WhiteSmoke" 
+                                       FontSize="24"
+                                       TextAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
 
-            <Setter Property="Background" Value="True">
-                
-            </Setter>
-            
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+
         </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="#7209b7"></Setter>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#7209b7"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
