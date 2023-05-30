@@ -1,11 +1,19 @@
 ﻿using Microsoft.Win32;
+using System.IO;
+using System.Runtime;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Forms;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace MusicVibes
 {
     public partial class MainWindow : Window
     {
+        private ObservableCollection<FileInfo>? _files;
+        private string[] extensions = new string[] { "mp3", "wav"};
         public MainWindow()
         {
             InitializeComponent();
@@ -23,12 +31,13 @@ namespace MusicVibes
 
         private void OpenFiles_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "All Media Files|*.wav;*.mp3;*.WAV;*.MP3;";
-            openFileDialog.Multiselect = true;
-            if(openFileDialog.ShowDialog() == true)
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
-
+                folderBrowserDialog.ShowDialog();
+                _files = new ObservableCollection<FileInfo>();
+                DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowserDialog.SelectedPath);
+                var tempMusic = directoryInfo.GetFiles("*.*").Where(file => extensions.Contains(Path.GetExtension(file.FullName).TrimStart('.').ToLowerInvariant()));
+                foreach(var file in tempMusic) _files.Add(file);
             }
         }
     }
