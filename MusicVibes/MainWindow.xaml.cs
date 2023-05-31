@@ -12,7 +12,7 @@ namespace MusicVibes
 {
     public partial class MainWindow : Window
     {
-        private ObservableCollection<FileInfo>? _files;
+        private ObservableCollection<FileInfo>? musicFiles { get; set; }
         private string[] extensions = new string[] { "mp3", "wav"};
         public MainWindow()
         {
@@ -34,10 +34,10 @@ namespace MusicVibes
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
                 folderBrowserDialog.ShowDialog();
-                _files = new ObservableCollection<FileInfo>();
+                musicFiles = new ObservableCollection<FileInfo>();
                 DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowserDialog.SelectedPath);
                 var tempMusic = directoryInfo.GetFiles("*.*").Where(file => extensions.Contains(Path.GetExtension(file.FullName).TrimStart('.').ToLowerInvariant()));
-                foreach(var file in tempMusic) _files.Add(file);
+                foreach(var file in tempMusic) musicFiles.Add(file);
             }
         }
     }
