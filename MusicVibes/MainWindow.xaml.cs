@@ -1,44 +1,34 @@
-﻿using Microsoft.Win32;
-using System.IO;
-using System.Runtime;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Forms;
-using System.Linq;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using MusicVibes.Pages;
 
 namespace MusicVibes
 {
     public partial class MainWindow : Window
     {
-        private ObservableCollection<FileInfo>? musicFiles { get; set; }
-        private string[] extensions = new string[] { "mp3", "wav"};
+        public MainPage mainPage;
+        public PlaylistsPage playlistsPage;
+        public SettingsPage settingsPage;
+
         public MainWindow()
         {
+            mainPage = new MainPage();
+            playlistsPage = new PlaylistsPage();
+            settingsPage = new SettingsPage();
             InitializeComponent();
+            MainFrame.Content = mainPage;
         }
 
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left) this.DragMove();
-        }
+        private void App_MouseDown(object sender, MouseButtonEventArgs e) { if (e.ChangedButton == MouseButton.Left) DragMove(); }
 
-        private void QuitButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        private void MainButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = mainPage;
 
-        private void OpenFiles_Click(object sender, RoutedEventArgs e)
-        {
-            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
-            {
-                folderBrowserDialog.ShowDialog();
-                musicFiles = new ObservableCollection<FileInfo>();
-                DirectoryInfo directoryInfo = new DirectoryInfo(folderBrowserDialog.SelectedPath);
-                var tempMusic = directoryInfo.GetFiles("*.*").Where(file => extensions.Contains(Path.GetExtension(file.FullName).TrimStart('.').ToLowerInvariant()));
-                foreach(var file in tempMusic) musicFiles.Add(file);
-            }
-        }
+        private void OpenFolderButton_Click(object sender, RoutedEventArgs e) { if (mainPage.LoadFiles()) MainFrame.Content = mainPage; }
+
+        private void PlaylistsButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = playlistsPage;
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = settingsPage;
+
+        private void QuitButton_Click(object sender, RoutedEventArgs e) => Close();
     }
 }

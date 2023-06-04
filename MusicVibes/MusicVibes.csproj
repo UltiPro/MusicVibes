@@ -16,11 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+	<PackageReference Include="WMPLib" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
