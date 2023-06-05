@@ -36,7 +36,7 @@
 
             <Border Grid.Column="1" Grid.Row="0" CornerRadius="0,35,0,0" Background="#eeddd3"/>
 
-            <Frame Grid.Column="1" Grid.Row="1" Background="#edede8" BorderBrush="#666565" BorderThickness="0,1,0,1" Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            <Frame Grid.Column="1" Grid.Row="1" Background="#f6f2f0" BorderBrush="#666565" BorderThickness="0,1,0,1" Name="MainFrame" NavigationUIVisibility="Hidden"/>
 
             <Border Grid.Column="1" Grid.Row="2" CornerRadius="0,0,35,0" Background="#eeddd3"/>
         </Grid>
