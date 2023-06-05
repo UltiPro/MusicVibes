@@ -41,9 +41,11 @@ namespace MusicVibes.Pages
                     var tempMusicFiles = directoryInfo.GetFiles("*.*").Where(file => extensions.Contains(System.IO.Path.GetExtension(file.FullName).TrimStart('.').ToLowerInvariant()));
                     musicFiles.Clear();
                     WindowsMediaPlayerClass wmp_temp = new WindowsMediaPlayerClass();
+                    int i = 0;
                     foreach (var musicFile in tempMusicFiles)
                     {
-                        musicFiles.Add(new MusicFile(musicFile.FullName, musicFile.Name.Remove(musicFile.Name.Length - 4), musicFile.Extension, wmp_temp.newMedia(musicFile.FullName).durationString));
+                        musicFiles.Add(new MusicFile(i,musicFile.FullName, musicFile.Name.Remove(musicFile.Name.Length - 4), musicFile.Extension, wmp_temp.newMedia(musicFile.FullName).durationString));
+                        i++;
                     }
                     return true;
                 }
