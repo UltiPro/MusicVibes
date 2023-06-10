@@ -32,7 +32,9 @@
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="0,0,0,1" BorderBrush="#666565">
             <ListView ItemsSource="{Binding musicFiles}" BorderThickness="0"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" 
-                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      MouseDoubleClick="ListView_MouseDoubleClick"
+                      SelectionChanged="ListView_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="-6,0,0,0">
@@ -53,7 +55,6 @@
                             <Border Grid.Column="2">
                                 <TextBlock Text="{Binding FileDuration}" TextAlignment="Center"/>
                             </Border>
-                            
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

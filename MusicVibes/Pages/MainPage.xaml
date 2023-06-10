@@ -23,7 +23,7 @@
             </StackPanel>
         </Border>
         
-        <uc:MusicList Grid.Row="1"/>
+        <uc:MusicList Grid.Row="1" x:Name="MusicList"/>
 
         <Border Grid.Row="2" BorderThickness="0" Background="#fff1e6">
             <DockPanel VerticalAlignment="Center">

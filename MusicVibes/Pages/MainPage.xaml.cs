@@ -24,11 +24,14 @@ namespace MusicVibes.Pages
 {
     public partial class MainPage : Page
     {
+        private AudioPlayer audioPlayer;
         public ObservableCollection<MusicFile> musicFiles { get; set; } = new ObservableCollection<MusicFile>();
         private string[] extensions = new string[] { "mp3", "wav" };
         public MainPage()
         {
             InitializeComponent();
+            audioPlayer = new AudioPlayer();
+            MusicList.onMusicChange += ChangeMusic;
         }
         public bool LoadFiles()
         {
@@ -54,6 +57,10 @@ namespace MusicVibes.Pages
                     return false;
                 }
             }
+        }
+        private void ChangeMusic(object sender, RoutedEventArgs e, int id)
+        {
+            audioPlayer.Start(musicFiles[id].FilePath);
         }
     }
 }
