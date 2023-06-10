@@ -9,7 +9,7 @@
                             <TextBlock Text="{TemplateBinding Property=Content}" 
                                        VerticalAlignment="Stretch" 
                                        Margin="0,5,0,10" 
-                                       Foreground="#fe6287" 
+                                       Foreground="#d4003e" 
                                        FontSize="24"
                                        TextAlignment="Center"/>
                         </Grid>

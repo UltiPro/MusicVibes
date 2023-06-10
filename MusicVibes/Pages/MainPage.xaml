@@ -28,9 +28,15 @@
         <Border Grid.Row="2" BorderThickness="0" Background="#fff1e6">
             <DockPanel VerticalAlignment="Center">
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                    <TextBlock>tył</TextBlock>
-                    <TextBlock>start stop</TextBlock>
-                    <TextBlock>przód</TextBlock>
+                    <Button Style="{StaticResource ControlButtonTheme}">
+                        <Image Source="pack://application:,,,/Images/Controls/FastRewind.png" Width="24" Height="24" />
+                    </Button>
+                    <Button Style="{StaticResource ControlButtonTheme}">
+                        <Image Source="pack://application:,,,/Images/Controls/Play.png" Width="24" Height="24" />
+                    </Button>
+                    <Button Style="{StaticResource ControlButtonTheme}">
+                        <Image Source="pack://application:,,,/Images/Controls/FastForward.png" Width="24" Height="24" />
+                    </Button>
                 </StackPanel>
                 <TextBlock DockPanel.Dock="Right">4</TextBlock>
                 <TextBlock DockPanel.Dock="Right">5</TextBlock>

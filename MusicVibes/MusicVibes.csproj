@@ -8,10 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Controls\FastForward.png" />
+    <None Remove="Images\Controls\FastRewind.png" />
+    <None Remove="Images\Controls\Pause.png" />
+    <None Remove="Images\Controls\Play.png" />
     <None Remove="Images\MusicVibes.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Controls\FastForward.png" />
+    <Resource Include="Images\Controls\FastRewind.png" />
+    <Resource Include="Images\Controls\Pause.png" />
+    <Resource Include="Images\Controls\Play.png" />
     <Resource Include="Images\MusicVibes.png" />
   </ItemGroup>
 
