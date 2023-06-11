@@ -12,7 +12,7 @@
     <None Remove="Images\Controls\FastRewind.png" />
     <None Remove="Images\Controls\Pause.png" />
     <None Remove="Images\Controls\Play.png" />
-    <None Remove="Images\MusicVibes.png" />
+    <None Remove="Images\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +20,7 @@
     <Resource Include="Images\Controls\FastRewind.png" />
     <Resource Include="Images\Controls\Pause.png" />
     <Resource Include="Images\Controls\Play.png" />
-    <Resource Include="Images\MusicVibes.png" />
+    <Resource Include="Images\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
