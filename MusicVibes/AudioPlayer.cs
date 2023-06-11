@@ -6,7 +6,7 @@ namespace MusicVibes.Models
     {
         private WindowsMediaPlayer WMP;
         public AudioPlayer() => WMP = new WindowsMediaPlayer();
-        public void Start(string path)
+        public void Load(string path)
         {
             Stop();
             WMP.settings.volume = 10;
@@ -17,5 +17,6 @@ namespace MusicVibes.Models
         public void Play() => WMP.controls.play();
         public void Stop() => WMP.controls.stop();
         public void ChangeVolume(short value) => WMP.settings.volume = value;
+        public void SkipTrack(int count) => WMP.controls.currentPosition += count;
     }
 }
