@@ -16,16 +16,16 @@
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" CornerRadius="35,0,0,35" Background="#eeddd3" BorderBrush="#666565" BorderThickness="0,0,1,0">
-                <DockPanel Margin="0,30,0,30">
+            <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" CornerRadius="35,0,0,35" Background="#e0b1cb">
+                <DockPanel Margin="0,35,0,35">
                     <StackPanel DockPanel.Dock="Top">
-                        <Image Source="pack://application:,,,/Images/MusicVibes.png" Width="96"/>
-                        <Label HorizontalContentAlignment="Center" FontSize="24" FontWeight="Bold">Music Vibes</Label>
+                        <Image Source="pack://application:,,,/Images/Logo.png" Width="96"/>
+                        <Label HorizontalContentAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#231942" Margin="0,-5,0,0">Music Vibes</Label>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Margin="15,0,15,0">
                         <RadioButton Content="Quit" Style="{StaticResource CloseButtonTheme}" Click="QuitButton_Click"/>
                     </StackPanel>
-                    <StackPanel DockPanel.Dock="Bottom" Margin="15,15,15,15">
+                    <StackPanel DockPanel.Dock="Bottom" Margin="15,15,15,0">
                         <RadioButton Content="Main" Style="{StaticResource MenuButtonTheme}" Click="MainButton_Click"/>
                         <RadioButton Content="Open Folder" Style="{StaticResource MenuButtonTheme}" Click="OpenFolderButton_Click"/>
                         <RadioButton Content="Playlists" Style="{StaticResource MenuButtonTheme}" Click="PlaylistsButton_Click"/>
@@ -34,11 +34,11 @@
                 </DockPanel>
             </Border>
 
-            <Border Grid.Column="1" Grid.Row="0" CornerRadius="0,35,0,0" Background="#eeddd3"/>
+            <Border Grid.Column="1" Grid.Row="0" CornerRadius="0,35,0,0" Background="#e0b1cb"/>
 
-            <Frame Grid.Column="1" Grid.Row="1" Background="#f6f2f0" BorderBrush="#666565" BorderThickness="0,1,0,1" Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            <Frame Grid.Column="1" Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden" Background="#ecf8f8" BorderBrush="#5e548e" BorderThickness="1,1,0,1"/>
 
-            <Border Grid.Column="1" Grid.Row="2" CornerRadius="0,0,35,0" Background="#eeddd3"/>
+            <Border Grid.Column="1" Grid.Row="2" CornerRadius="0,0,35,0" Background="#e0b1cb"/>
         </Grid>
     </Border>
 </Window>
