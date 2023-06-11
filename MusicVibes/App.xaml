@@ -5,6 +5,20 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <SolidColorBrush x:Key="BackgroundColor1">#e0b1cb</SolidColorBrush>
+            <SolidColorBrush x:Key="BackgroundColor2">#be95c4</SolidColorBrush>
+            <SolidColorBrush x:Key="BackgroundColor3">#9f86c0</SolidColorBrush>
+            <SolidColorBrush x:Key="BorderColor1">#5e548e</SolidColorBrush>
+            <SolidColorBrush x:Key="FontColor1">#231942</SolidColorBrush>
+            <SolidColorBrush x:Key="FontColor2">#f72585</SolidColorBrush>
+            <SolidColorBrush x:Key="WhiteSpecial">#ecf8f8</SolidColorBrush>
+            <Style x:Key="TextBlockApp" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="{Binding Source={StaticResource FontColor1}}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/CloseButtonTheme.xaml" />
