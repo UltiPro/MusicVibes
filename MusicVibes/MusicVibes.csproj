@@ -8,18 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Controls\FastForward.png" />
-    <None Remove="Images\Controls\FastRewind.png" />
     <None Remove="Images\Controls\Pause.png" />
     <None Remove="Images\Controls\Play.png" />
+    <None Remove="Images\Controls\Skip10End.png" />
+    <None Remove="Images\Controls\Skip10Start.png" />
+    <None Remove="Images\Controls\SkipEnd.png" />
+    <None Remove="Images\Controls\SkipStart.png" />
+    <None Remove="Images\Controls\Volume.png" />
     <None Remove="Images\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Controls\FastForward.png" />
-    <Resource Include="Images\Controls\FastRewind.png" />
     <Resource Include="Images\Controls\Pause.png" />
     <Resource Include="Images\Controls\Play.png" />
+    <Resource Include="Images\Controls\Skip10End.png" />
+    <Resource Include="Images\Controls\Skip10Start.png" />
+    <Resource Include="Images\Controls\SkipEnd.png" />
+    <Resource Include="Images\Controls\SkipStart.png" />
+    <Resource Include="Images\Controls\Volume.png" />
     <Resource Include="Images\Logo.png" />
   </ItemGroup>
 
