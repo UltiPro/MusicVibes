@@ -3,45 +3,60 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:MusicVibes.Pages"
       xmlns:uc="clr-namespace:MusicVibes.UserControls"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="860"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
-        
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <Border Grid.Row="0" BorderThickness="0" Background="#fff1e6">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock FontWeight="Bold" FontSize="20" xml:space="preserve">Now playing: </TextBlock>
-                <TextBlock FontSize="20" Text="Test"/>
+
+        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve">Now playing: </TextBlock>
+                <TextBlock Name="NowPlaying" Text="----------" MaxWidth="700" FontSize="24" Foreground="{StaticResource FontColor1}" TextTrimming="CharacterEllipsis"/>
             </StackPanel>
         </Border>
         
         <uc:MusicList Grid.Row="1" x:Name="MusicList"/>
 
-        <Border Grid.Row="2" BorderThickness="0" Background="#fff1e6">
+        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
             <DockPanel VerticalAlignment="Center">
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                    <Button Style="{StaticResource ControlButtonTheme}">
-                        <Image Source="pack://application:,,,/Images/Controls/FastRewind.png" Width="24" Height="24" />
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="SkipStart" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                        <Image Source="pack://application:,,,/Images/Controls/SkipStart.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
-                    <Button Style="{StaticResource ControlButtonTheme}">
-                        <Image Source="pack://application:,,,/Images/Controls/Play.png" Width="24" Height="24" />
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10Start" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                        <Image Source="pack://application:,,,/Images/Controls/Skip10Start.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
-                    <Button Style="{StaticResource ControlButtonTheme}">
-                        <Image Source="pack://application:,,,/Images/Controls/FastForward.png" Width="24" Height="24" />
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="StartPauseMusic" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                        <Image Source="pack://application:,,,/Images/Controls/Play.png" Name="StartStopImage" Style="{StaticResource PlayerControlImage}" />
+                    </Button>
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10End" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                        <Image Source="pack://application:,,,/Images/Controls/Skip10End.png" Style="{StaticResource PlayerControlImage}" />
+                    </Button>
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="SkipEnd" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                        <Image Source="pack://application:,,,/Images/Controls/SkipEnd.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
                 </StackPanel>
-                <TextBlock DockPanel.Dock="Right">4</TextBlock>
-                <TextBlock DockPanel.Dock="Right">5</TextBlock>
+
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="0,0,5,0">
+                    <Button Style="{StaticResource ControlButtonTheme}" 
+                        MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                        <Image Name="VolumeImage" Source="pack://application:,,,/Images/Controls/Volume.png" Style="{StaticResource PlayerControlImage}"/>
+                    </Button>
+                    <Slider Name="VolumeSlider" Width="101" VerticalAlignment="Center" AutoToolTipPlacement="TopLeft"
+                            Value="50" Minimum="0" Maximum="100" TickFrequency="1"
+                            IsSnapToTickEnabled="True" ValueChanged="VolumeChanged"
+                            />
+                </StackPanel>
+
+                <Slider DockPanel.Dock="Right" VerticalAlignment="Center" Margin="3,0,0,0"
+                        IsSelectionRangeEnabled="True"></Slider>
+                
             </DockPanel>
         </Border>
-        
     </Grid>
 </Page>
