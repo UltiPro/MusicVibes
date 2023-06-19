@@ -24,5 +24,10 @@ namespace MusicVibes.Pages
         {
             InitializeComponent();
         }
+
+        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
