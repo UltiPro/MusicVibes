@@ -8,22 +8,30 @@
       d:DesignHeight="450" d:DesignWidth="860"
       Title="PlaylistsPage">
 
-	<Grid>
+	<Grid Background="White">
 		<Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+			<RowDefinition Height="40"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="40"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+				<TextBlock FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve">Playlists</TextBlock>
+			</StackPanel>
+		</Border>
+		<StackPanel Grid.Row="1" Margin="20" Background="White">
+			<Button Margin="0,4,0,5" Foreground="#231942" Background="#e0b1cb" FontSize="24" Padding="20 10" BorderBrush="Transparent" FontWeight="Bold"  Click="AddPlaylist_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
+				Dodaj playlistę
+				
+			</Button>
+			<StackPanel x:Name="PlaylistsStackPanel" Margin="10" VerticalAlignment="Top"/>
 
-        <ScrollViewer Grid.Row="0">
-            <StackPanel x:Name="foldersPanel" Orientation="Vertical" />
-        </ScrollViewer>
 
-        <ListBox Grid.Row="1" x:Name="songsListBox" >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+		</StackPanel>
+		<Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+			<DockPanel VerticalAlignment="Center">
+				<!-- Add your player control buttons and volume controls here -->
+			</DockPanel>
+		</Border>
 	</Grid>
 </Page>

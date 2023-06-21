@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
+using Microsoft.Win32;
+using FBD = System.Windows.Forms;
 
 namespace MusicVibes.Pages
 {
@@ -20,56 +22,124 @@ namespace MusicVibes.Pages
     /// </summary>
     public partial class PlaylistsPage : Page
     {
-        private readonly string playlistsFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Playlists");
+        private const string PlaylistsFilePath = "playlistsPath.txt";
+        private List<string> playlistPaths;
 
         public PlaylistsPage()
         {
-
             InitializeComponent();
-            LoadFolders();
+            LoadPlaylists();
         }
-        private void LoadFolders()
+        private void AddPlaylist_Click(object sender, RoutedEventArgs e)
         {
-            if (!Directory.Exists(playlistsFolderPath))
-            {
-                MessageBox.Show("Folder 'Playlists' nie istnieje na pulpicie.");
-                return;
-            }
+            var folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            var result = folderBrowserDialog.ShowDialog();
 
-            string[] folders = Directory.GetDirectories(playlistsFolderPath);
-            foreach (string folderPath in folders)
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
-                string folderName = Path.GetFileName(folderPath);
-                Button folderButton = new Button
+                string selectedFolderPath = folderBrowserDialog.SelectedPath;
+                SavePlaylistPath(selectedFolderPath);
+                LoadPlaylists();
+            }
+        }
+
+        private void SavePlaylistPath(string playlistPath)
+        {
+            try
+            {
+                // Tworzenie pliku playlistsPath.txt, jeśli nie istnieje
+                if (!File.Exists(PlaylistsFilePath))
                 {
-                    Content = folderName,
-                    Margin = new Thickness(5),
-                    Tag = folderPath
-                };
-                folderButton.Click += FolderButton_Click;
-                foldersPanel.Children.Add(folderButton);
+                    File.Create(PlaylistsFilePath).Close();
+                }
+                
+                List<string> existingPaths = new List<string>(File.ReadAllLines(PlaylistsFilePath));
+
+                // Sprawdzanie, czy ścieżka jest już zapisana w pliku
+                if (existingPaths.Contains(playlistPath))
+                {
+                    MessageBox.Show("Ta ścieżka już istnieje w pliku.");
+                    return;
+                }
+                // Zapisywanie ścieżki folderu do pliku playlistsPath.txt
+                existingPaths.Add(playlistPath);
+                File.WriteAllLines(PlaylistsFilePath, existingPaths);
             }
-        }
-
-        private void FolderButton_Click(object sender, RoutedEventArgs e)
-        {
-            Button folderButton = (Button)sender;
-            string folderPath = (string)folderButton.Tag;
-            LoadSongs(folderPath);
-        }
-
-        private void LoadSongs(string folderPath)
-        {
-            string[] songs = Directory.GetFiles(folderPath, "*.mp3");
-
-            List<string> songNames = new List<string>();
-            foreach (string songPath in songs)
+            catch (Exception ex)
             {
-                string songName = Path.GetFileName(songPath);
-                songNames.Add(songName);
+                MessageBox.Show($"Wystąpił błąd podczas zapisywania ścieżki playlisty: {ex.Message}");
             }
+        }
 
-            songsListBox.ItemsSource = songNames;
+        private void LoadPlaylists()
+        {
+            try
+            {
+                PlaylistsStackPanel.Children.Clear();
+
+                if (File.Exists(PlaylistsFilePath))
+                {
+                    string[] playlistPaths = File.ReadAllLines(PlaylistsFilePath);
+
+                    foreach (string playlistPath in playlistPaths)
+                    {
+                        StackPanel playlistPanel = new StackPanel();
+                        playlistPanel.Orientation = Orientation.Horizontal;
+
+                        Button playlistButton = new Button();
+                        playlistButton.Content = Path.GetFileName(playlistPath).ToUpper();
+                        playlistButton.Tag = playlistPath;
+                        playlistButton.Click += PlaylistButton_Click;
+
+                        Button deleteButton = new Button();
+                        deleteButton.Content = "Usuń";
+                        deleteButton.Tag = playlistPath;
+                        deleteButton.Click += DeleteButton_Click;
+
+                        playlistPanel.Children.Add(playlistButton);
+                        playlistPanel.Children.Add(deleteButton);
+
+                        PlaylistsStackPanel.Children.Add(playlistPanel);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd podczas wczytywania playlist: {ex.Message}");
+            }
+        }
+        private void PlaylistButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button playlistButton = (Button)sender;
+            string playlistPath = playlistButton.Content.ToString();
+            // Wykonaj odpowiednie działania na podstawie wybranej playlisty
+            MessageBox.Show($"Wybrano playlistę: {playlistPath}");
+        }
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button deleteButton = (Button)sender;
+            StackPanel playlistPanel = (StackPanel)deleteButton.Parent;
+            Button playlistButton = (Button)playlistPanel.Children[0];
+            string playlistPath = playlistButton.Tag.ToString();
+
+            try
+            {
+                if (File.Exists(PlaylistsFilePath))
+                {
+                    List<string> existingPaths = new List<string>(File.ReadAllLines(PlaylistsFilePath));
+
+                    if (existingPaths.Contains(playlistPath))
+                    {
+                        existingPaths.Remove(playlistPath);
+                        File.WriteAllLines(PlaylistsFilePath, existingPaths);
+                        PlaylistsStackPanel.Children.Remove(playlistPanel);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Wystąpił błąd podczas usuwania playlisty: {ex.Message}");
+            }
         }
     }
 }
