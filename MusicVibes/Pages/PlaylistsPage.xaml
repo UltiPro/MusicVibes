@@ -22,7 +22,6 @@
 		<StackPanel Grid.Row="1" Margin="20" Background="White">
 			<Button Margin="0,4,0,5" Foreground="#231942" Background="#e0b1cb" FontSize="24" Padding="20 10" BorderBrush="Transparent" FontWeight="Bold"  Click="AddPlaylist_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
 				Dodaj playlistę
-				
 			</Button>
 			<StackPanel x:Name="PlaylistsStackPanel" Margin="10" VerticalAlignment="Top"/>
 

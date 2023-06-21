@@ -52,7 +52,7 @@ namespace MusicVibes.Pages
                 {
                     File.Create(PlaylistsFilePath).Close();
                 }
-                
+
                 List<string> existingPaths = new List<string>(File.ReadAllLines(PlaylistsFilePath));
 
                 // Sprawdzanie, czy ścieżka jest już zapisana w pliku
@@ -90,11 +90,26 @@ namespace MusicVibes.Pages
                         playlistButton.Content = Path.GetFileName(playlistPath).ToUpper();
                         playlistButton.Tag = playlistPath;
                         playlistButton.Click += PlaylistButton_Click;
+                        playlistButton.Margin = new Thickness(0, 4, 0, 5);
+                        playlistButton.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
+                        playlistButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0b1cb"));
+                        playlistButton.FontSize = 24;
+                        playlistButton.Padding = new Thickness(20, 10, 20, 10);
+                        playlistButton.BorderBrush = Brushes.Transparent;
+                        playlistButton.HorizontalAlignment = HorizontalAlignment.Left;
 
                         Button deleteButton = new Button();
                         deleteButton.Content = "Usuń";
                         deleteButton.Tag = playlistPath;
                         deleteButton.Click += DeleteButton_Click;
+                        deleteButton.Margin = new Thickness(0, 4, 0, 5);
+                        deleteButton.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
+                        deleteButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0b1cb"));
+                        deleteButton.FontSize = 24;
+                        deleteButton.Padding = new Thickness(20, 10, 20, 10);
+                        deleteButton.BorderBrush = Brushes.Transparent;
+
+                        deleteButton.HorizontalAlignment = HorizontalAlignment.Right;
 
                         playlistPanel.Children.Add(playlistButton);
                         playlistPanel.Children.Add(deleteButton);
@@ -111,7 +126,7 @@ namespace MusicVibes.Pages
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
             Button playlistButton = (Button)sender;
-            string playlistPath = playlistButton.Content.ToString();
+            string playlistPath = playlistButton.Tag.ToString();
             // Wykonaj odpowiednie działania na podstawie wybranej playlisty
             MessageBox.Show($"Wybrano playlistę: {playlistPath}");
         }
