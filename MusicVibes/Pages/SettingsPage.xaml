@@ -30,7 +30,12 @@
                 <!-- Add your audio output options here -->
             </ComboBox>
 
-            <!-- Additional settings options can be added here -->
+            <TextBlock FontSize="18" FontWeight="Bold" Foreground="{StaticResource FontColor1}" Margin="0,0,0,10">Audio Quality</TextBlock>
+            <ComboBox x:Name="AudioQualityComboBox" Margin="0,0,0,10">
+                <ComboBoxItem Content="Low" />
+                <ComboBoxItem Content="Medium" />
+                <ComboBoxItem Content="High" />
+            </ComboBox>
 
             <Button Content="Save Settings" HorizontalAlignment="Center" Width="120" Margin="0,20,0,0" />
         </StackPanel>
