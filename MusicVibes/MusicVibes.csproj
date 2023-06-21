@@ -15,6 +15,7 @@
     <None Remove="Images\Controls\SkipEnd.png" />
     <None Remove="Images\Controls\SkipStart.png" />
     <None Remove="Images\Controls\Volume.png" />
+    <None Remove="Images\Controls\VolumeMute.png" />
     <None Remove="Images\Logo.png" />
   </ItemGroup>
 
@@ -26,6 +27,7 @@
     <Resource Include="Images\Controls\SkipEnd.png" />
     <Resource Include="Images\Controls\SkipStart.png" />
     <Resource Include="Images\Controls\Volume.png" />
+    <Resource Include="Images\Controls\VolumeMute.png" />
     <Resource Include="Images\Logo.png" />
   </ItemGroup>
 
