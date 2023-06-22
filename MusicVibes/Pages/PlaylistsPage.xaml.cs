@@ -142,8 +142,9 @@ namespace MusicVibes.Pages
                         deleteButton.Content = deleteIcon;
 
 
-                        playlistPanel.Children.Add(deleteButton);
                         playlistPanel.Children.Add(playlistButton);
+                        playlistPanel.Children.Add(deleteButton);
+
 
                         PlaylistsStackPanel.Children.Add(playlistPanel);
                     }
