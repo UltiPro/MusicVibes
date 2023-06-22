@@ -8,61 +8,67 @@
       xmlns:language="clr-namespace:MusicVibes.Properties.Langs"
 
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <Grid Background="White">
+    <Grid Background="{DynamicResource WhiteSpecial}">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
 
-                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve">Settings</TextBlock>
-
-                <Label FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve" Content="{x:Static language:Lang.Settings}"></Label>
+                <Label FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve" Content="{x:Static language:Lang.Settings}"></Label>
 
             </StackPanel>
         </Border>
 
-        <StackPanel Grid.Row="1" Margin="20" Background="White">
-            <TextBlock FontSize="18" FontWeight="Bold" Foreground="{StaticResource FontColor1}" Margin="0,0,0,10">Appearance</TextBlock>
+        <Grid Grid.Row="1" Margin="55" Background="{DynamicResource WhiteSpecial}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <ComboBox x:Name="ThemeComboBox" SelectedIndex="0" Margin="0,0,0,10" SelectionChanged="ThemeComboBox_SelectionChanged">
+            <Border CornerRadius="15" Background="{DynamicResource BackgroundColor1}" Margin="0,0,40,0">
+                 <StackPanel Grid.Column="0"  >
+                    <Label FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10" Content="Language" VerticalAlignment="Center" HorizontalAlignment="Center"/> 
+                    
+                        <DockPanel Margin="10,10,100,10">
+                            <Button Content="EN" Width="32" Height="32" Margin="0,0,0,0" Click="LanguageButton_En" />
+                        </DockPanel>
 
-                <ComboBoxItem Content="Light" />
-                <ComboBoxItem Content="Dark" />
-            </ComboBox>
+                        <DockPanel Margin="100,100,10,10">
+                            <Button Content="PL" Width="32" Height="32" Margin="0,0,0,0" Click="LanguageButton_Pl" />
+                        </DockPanel>
+                                          
+                </StackPanel>   
+            </Border>
+            
 
-            <TextBlock FontSize="18" FontWeight="Bold" Foreground="{StaticResource FontColor1}" Margin="0,0,0,10">Audio Output</TextBlock>
+            <StackPanel Grid.Column="1" Margin="0,0,40,0" Background="{DynamicResource BackgroundColor1}">
+                <TextBlock FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10">Theme Mode</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Light" Width="32" Height="32" Margin="0,0,10,0" Click="ThemeButton_Light" />
+                    <Button Content="Dark" Width="32" Height="32" Margin="0,0,10,0" Click="ThemeButton_Dark" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Margin="0,0,40,0" Background="{DynamicResource BackgroundColor1}">
+                <TextBlock  FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10">About Us</TextBlock>
+                <TextBlock>
+            Wersja aplikacji: 1.0.0
+            Data: 22.06.2023
+            Autorzy:
+            Autor1
+            Autor2
+            Autor3
+                </TextBlock>
+            </StackPanel>
+        </Grid>
 
 
-            <ComboBox x:Name="AudioOutputComboBox" Margin="0,0,0,10" SelectionChanged="AudioOutputComboBox_SelectionChanged">
-                <!-- Add your audio output options here -->
-            </ComboBox>
-
-            <TextBlock FontSize="18" FontWeight="Bold" Foreground="{StaticResource FontColor1}" Margin="0,0,0,10">Audio Quality</TextBlock>
-
-         
-
-            <ComboBox x:Name="AudioQualityComboBox" Margin="0,0,0,10" SelectionChanged="AudioQualityComboBox_SelectionChanged">
-                <ComboBoxItem Content="Low" />
-                <ComboBoxItem Content="Medium" />
-                <ComboBoxItem Content="High" />
-            </ComboBox>
-
-            <ComboBox Name="cmb_lg"
-                SelectionChanged="LanguageComboBox_SelectionChanged">
-                <ComboBoxItem Content="{x:Static language:Lang.en}"/>
-                <ComboBoxItem Content="{x:Static language:Lang.pl}"/>
-            </ComboBox>
-            <Button Content="{x:Static language:Lang.Load}" Click="Button_Click" HorizontalAlignment="Center" Width="120" Margin="0,20,0,0"/>
-
-            <Button Content="{x:Static language:Lang.Save_Settings}" HorizontalAlignment="Center" Width="120" Margin="0,20,0,0" />
-
-        </StackPanel>
-
-        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
             <DockPanel VerticalAlignment="Center">
                 <!-- Add your player control buttons and volume controls here -->
             </DockPanel>

@@ -12,13 +12,7 @@
             <SolidColorBrush x:Key="FontColor1">#231942</SolidColorBrush>
             <SolidColorBrush x:Key="FontColor2">#f72585</SolidColorBrush>
             <SolidColorBrush x:Key="WhiteSpecial">#ecf8f8</SolidColorBrush>
-
-            <SolidColorBrush x:Key="BackgroundColor21">#cf6679</SolidColorBrush>
-            <SolidColorBrush x:Key="BackgroundColorDarkGray">#252525</SolidColorBrush>
-            <SolidColorBrush x:Key="BackgroundColor23">#000000</SolidColorBrush>
-            <SolidColorBrush x:Key="BorderColor21">#000000</SolidColorBrush>
-            <SolidColorBrush x:Key="FontColor21">#bb86fc</SolidColorBrush>
-            <SolidColorBrush x:Key="FontColor22">#6200ee</SolidColorBrush>
+    
             <Style x:Key="TextBlockApp" TargetType="TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
