@@ -30,5 +30,6 @@ namespace MusicVibes
         private void SettingsButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = settingsPage;
 
         private void QuitButton_Click(object sender, RoutedEventArgs e) => Close();
+
     }
 }

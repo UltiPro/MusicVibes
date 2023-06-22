@@ -4,6 +4,9 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="860"
+
+      xmlns:language="clr-namespace:MusicVibes.Properties.Langs"
+
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -14,30 +17,49 @@
 
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+
                 <TextBlock FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve">Settings</TextBlock>
+
+                <Label FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve" Content="{x:Static language:Lang.Settings}"></Label>
+
             </StackPanel>
         </Border>
 
         <StackPanel Grid.Row="1" Margin="20" Background="White">
             <TextBlock FontSize="18" FontWeight="Bold" Foreground="{StaticResource FontColor1}" Margin="0,0,0,10">Appearance</TextBlock>
-            <ComboBox x:Name="ThemeComboBox" SelectedIndex="0" Margin="0,0,0,10">
+
+            <ComboBox x:Name="ThemeComboBox" SelectedIndex="0" Margin="0,0,0,10" SelectionChanged="ThemeComboBox_SelectionChanged">
+
                 <ComboBoxItem Content="Light" />
                 <ComboBoxItem Content="Dark" />
             </ComboBox>
 
             <TextBlock FontSize="18" FontWeight="Bold" Foreground="{StaticResource FontColor1}" Margin="0,0,0,10">Audio Output</TextBlock>
-            <ComboBox x:Name="AudioOutputComboBox" Margin="0,0,0,10">
+
+
+            <ComboBox x:Name="AudioOutputComboBox" Margin="0,0,0,10" SelectionChanged="AudioOutputComboBox_SelectionChanged">
                 <!-- Add your audio output options here -->
             </ComboBox>
 
             <TextBlock FontSize="18" FontWeight="Bold" Foreground="{StaticResource FontColor1}" Margin="0,0,0,10">Audio Quality</TextBlock>
-            <ComboBox x:Name="AudioQualityComboBox" Margin="0,0,0,10">
+
+         
+
+            <ComboBox x:Name="AudioQualityComboBox" Margin="0,0,0,10" SelectionChanged="AudioQualityComboBox_SelectionChanged">
                 <ComboBoxItem Content="Low" />
                 <ComboBoxItem Content="Medium" />
                 <ComboBoxItem Content="High" />
             </ComboBox>
 
-            <Button Content="Save Settings" HorizontalAlignment="Center" Width="120" Margin="0,20,0,0" />
+            <ComboBox Name="cmb_lg"
+                SelectionChanged="LanguageComboBox_SelectionChanged">
+                <ComboBoxItem Content="{x:Static language:Lang.en}"/>
+                <ComboBoxItem Content="{x:Static language:Lang.pl}"/>
+            </ComboBox>
+            <Button Content="{x:Static language:Lang.Load}" Click="Button_Click" HorizontalAlignment="Center" Width="120" Margin="0,20,0,0"/>
+
+            <Button Content="{x:Static language:Lang.Save_Settings}" HorizontalAlignment="Center" Width="120" Margin="0,20,0,0" />
+
         </StackPanel>
 
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
