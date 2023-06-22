@@ -52,7 +52,7 @@
                             </Border>
 
                             <Border Grid.Column="2">
-                                <TextBlock Text="{Binding FileDuration}" TextAlignment="Center" Padding="1,0,1,0" TextTrimming="CharacterEllipsis"/>
+                                <TextBlock Text="{Binding FileDurationString}" TextAlignment="Center" Padding="1,0,1,0" TextTrimming="CharacterEllipsis"/>
                             </Border>
                         </Grid>
                     </DataTemplate>
