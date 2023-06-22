@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 
-namespace MusicVibes
-{
-    public partial class App : Application { }
-}
+namespace MusicVibes;
+
+public partial class App : Application { }

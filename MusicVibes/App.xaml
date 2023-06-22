@@ -21,7 +21,6 @@
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="TextAlignment" Value="Center"/>
-                <Setter Property="Foreground" Value="{Binding Source={StaticResource FontColor1}}"/>
                 <Setter Property="FontWeight" Value="Bold"/>
             </Style>
             <Style x:Key="PlayerControlImage" TargetType="Image">
