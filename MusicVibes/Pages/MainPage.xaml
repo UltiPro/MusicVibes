@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:uc="clr-namespace:MusicVibes.UserControls"
+      xmlns:language="clr-namespace:MusicVibes.Properties.Langs"
       mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="860"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
@@ -15,7 +16,7 @@
 
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve">Now playing: </TextBlock>
+                <TextBlock Text="{x:Static language:Lang.Now_playing}" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}"></TextBlock>
                 <TextBlock Name="NowPlaying" Text="----------" MaxWidth="700" FontSize="24" Foreground="{DynamicResource FontColor1}" TextTrimming="CharacterEllipsis"/>
             </StackPanel>
         </Border>
@@ -52,8 +53,8 @@
                 </StackPanel>
 
                 <DockPanel DockPanel.Dock="Right" Margin="5,0,5,0">
-                    <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="CurrentDurationInfo">00:00</TextBlock>
-                    <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="DurationInfo">00:00</TextBlock>
+                    <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="CurrentDurationInfo" Foreground="{DynamicResource FontColor1}">00:00</TextBlock>
+                    <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="DurationInfo" Foreground="{DynamicResource FontColor1}">00:00</TextBlock>
                     <Slider DockPanel.Dock="Right" Name="DurationSlider" Width="430" VerticalAlignment="Center" Minimum="0"
                             Style="{StaticResource AppSlider}" Thumb.DragStarted="DurationChangedStart" Thumb.DragCompleted="DurationChangedEnd" />
                 </DockPanel>
