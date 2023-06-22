@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows.Controls.Primitives;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using FBD = System.Windows.Forms;
 using WMPLib;
@@ -26,6 +27,7 @@ public partial class MainPage : Page
     private BitmapImage muteVolume = new BitmapImage(new Uri("pack://application:,,,/Images/Controls/VolumeMute.png", UriKind.RelativeOrAbsolute));
     private BitmapImage unmuteVolume = new BitmapImage(new Uri("pack://application:,,,/Images/Controls/Volume.png", UriKind.RelativeOrAbsolute));
     private Thread theardRefresher;
+    private List<MusicFile> deletedMusicFiles;
     private string[] extensions = new string[] { "mp3", "wav" };
     private bool isPlaying, isMute, isDragging;
     public ObservableCollection<MusicFile> musicFiles { get; } = new ObservableCollection<MusicFile>();
@@ -35,7 +37,7 @@ public partial class MainPage : Page
     {
         audioPlayer = new AudioPlayer(this);
         theardRefresher = new Thread(() => UpdateTrackDuration());
-        theardRefresher.Start();
+        deletedMusicFiles = new List<MusicFile>();
         isPlaying = false;
         isMute = false;
         isDragging = false;
@@ -43,6 +45,7 @@ public partial class MainPage : Page
         stopApp = false;
         InitializeComponent();
         MusicList.onMusicChange += ChangeMusic;
+        theardRefresher.Start();
     }
     public bool LoadFilesFromDialog()
     {
@@ -107,6 +110,12 @@ public partial class MainPage : Page
         DurationSlider.Maximum = musicFiles[currentId].FileDuration;
         DurationSlider.Value = 0.0d;
         DurationInfo.Text = musicFiles[currentId].FileDurationString;
+    }
+    private void SearchTextChanged(object sender, TextChangedEventArgs e)
+    {
+        foreach (MusicFile musicFile in deletedMusicFiles) musicFiles.Insert(musicFile.FileId - 1, musicFile);
+        deletedMusicFiles = musicFiles.ToList().Where(e => !e.FileName.ToLower().Contains((sender as TextBox).Text.ToLower())).ToList();
+        foreach (MusicFile musicFile in deletedMusicFiles) musicFiles.RemoveAt(musicFiles.IndexOf(musicFile));
     }
     private void SkipStart(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : !audioPlayer.IsJustStarted() ? currentId : --currentId < 0 ? (musicFiles.Count - 1) : currentId);
     private void Skip10Start(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : -10);
