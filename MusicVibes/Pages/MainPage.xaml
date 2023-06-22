@@ -19,7 +19,7 @@
                 <TextBlock Name="NowPlaying" Text="----------" MaxWidth="700" FontSize="24" Foreground="{StaticResource FontColor1}" TextTrimming="CharacterEllipsis"/>
             </StackPanel>
         </Border>
-        
+
         <uc:MusicList Grid.Row="1" x:Name="MusicList"/>
 
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
@@ -43,20 +43,22 @@
                 </StackPanel>
 
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="0,0,5,0">
-                    <Button Style="{StaticResource ControlButtonTheme}" 
-                        MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
-                        <Image Name="VolumeImage" Source="pack://application:,,,/Images/Controls/Volume.png" Style="{StaticResource PlayerControlImage}"/>
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="MuteUnmuteVolume" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                        <Image Source="pack://application:,,,/Images/Controls/Volume.png" Name="VolumeImage" Style="{StaticResource PlayerControlImage}"/>
                     </Button>
-                    <Slider Name="VolumeSlider" Width="101" VerticalAlignment="Center" AutoToolTipPlacement="TopLeft"
-                            Value="50" Minimum="0" Maximum="100" TickFrequency="1"
-                            IsSnapToTickEnabled="True" ValueChanged="VolumeChanged"
-                            />
+                    <Slider Name="VolumeSlider" Width="100" VerticalAlignment="Center" AutoToolTipPlacement="TopLeft"
+                            Minimum="0" Maximum="100" Value="50" TickFrequency="1" IsSnapToTickEnabled="True"
+                            Style="{StaticResource AppSlider}" ValueChanged="VolumeChanged" />
                 </StackPanel>
 
-                <Slider DockPanel.Dock="Right" VerticalAlignment="Center" Margin="3,0,0,0"
-                        IsSelectionRangeEnabled="True"></Slider>
-                
+                <DockPanel DockPanel.Dock="Right" Margin="5,0,5,0">
+                    <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="CurrentDurationInfo">00:00</TextBlock>
+                    <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="DurationInfo">00:00</TextBlock>
+                    <Slider DockPanel.Dock="Right" Name="DurationSlider" Width="430" VerticalAlignment="Center" Minimum="0"
+                            Style="{StaticResource AppSlider}" Thumb.DragStarted="DurationChangedStart" Thumb.DragCompleted="DurationChangedEnd" />
+                </DockPanel>
             </DockPanel>
         </Border>
     </Grid>
 </Page>
+    
