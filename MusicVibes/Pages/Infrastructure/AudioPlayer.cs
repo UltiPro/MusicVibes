@@ -13,12 +13,7 @@ class AudioPlayer
         WMP.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(TrackEnded);
         this.mainPage = mainPage;
     }
-    public void Load(string path)
-    {
-        WMP.controls.stop();
-        WMP.URL = path;
-        Play();
-    }
+    public void Load(string path) => WMP.URL = path;
     public void Pause() => WMP.controls.pause();
     public void Play() => WMP.controls.play();
     public void SkipTrack(int count) => WMP.controls.currentPosition += count;
