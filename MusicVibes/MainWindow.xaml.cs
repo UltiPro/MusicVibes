@@ -29,5 +29,9 @@ public partial class MainWindow : Window
 
     private void SettingsButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = settingsPage;
 
-    private void QuitButton_Click(object sender, RoutedEventArgs e) => Close();
+    private void QuitButton_Click(object sender, RoutedEventArgs e)
+    {
+        mainPage.stopApp = true;
+        Close();
+    }
 }
