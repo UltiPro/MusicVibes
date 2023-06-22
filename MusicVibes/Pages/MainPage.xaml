@@ -13,16 +13,16 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve">Now playing: </TextBlock>
-                <TextBlock Name="NowPlaying" Text="----------" MaxWidth="700" FontSize="24" Foreground="{StaticResource FontColor1}" TextTrimming="CharacterEllipsis"/>
+                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve">Now playing: </TextBlock>
+                <TextBlock Name="NowPlaying" Text="----------" MaxWidth="700" FontSize="24" Foreground="{DynamicResource FontColor1}" TextTrimming="CharacterEllipsis"/>
             </StackPanel>
         </Border>
 
         <uc:MusicList Grid.Row="1" x:Name="MusicList"/>
 
-        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <DockPanel VerticalAlignment="Center">
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
                     <Button Style="{StaticResource ControlButtonTheme}" Click="SkipStart" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
