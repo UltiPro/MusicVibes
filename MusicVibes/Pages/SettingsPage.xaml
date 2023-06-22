@@ -15,7 +15,7 @@
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
 
                 <Label FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve" Content="{x:Static language:Lang.Settings}"></Label>
@@ -30,45 +30,55 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Border CornerRadius="15" Background="{DynamicResource BackgroundColor1}" Margin="0,0,40,0">
-                 <StackPanel Grid.Column="0"  >
-                    <Label FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10" Content="Language" VerticalAlignment="Center" HorizontalAlignment="Center"/> 
-                    
-                        <DockPanel Margin="10,10,100,10">
-                            <Button Content="EN" Width="32" Height="32" Margin="0,0,0,0" Click="LanguageButton_En" />
-                        </DockPanel>
+            <Border Grid.Column="0" CornerRadius="15" Background="{DynamicResource BackgroundColor1}" Margin="0,0,40,0">
+                 <StackPanel  >
+                    <Label FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10" Content="{x:Static language:Lang.Language}" VerticalAlignment="Center" HorizontalAlignment="Center"/> 
+                  
+                    <DockPanel Margin="10,10,100,10">
+                        <Button Style="{StaticResource ControlButtonTheme}" Width="64" Height="64" Margin="0,0,0,0" Click="LanguageButton_En">
+                            <Image Source="pack://application:,,,/Images/Settings/en.png"/>
+                        </Button>
+                    </DockPanel>
 
-                        <DockPanel Margin="100,100,10,10">
-                            <Button Content="PL" Width="32" Height="32" Margin="0,0,0,0" Click="LanguageButton_Pl" />
-                        </DockPanel>
-                                          
+                    <DockPanel Margin="100,50,10,10">
+                        <Button Style="{StaticResource ControlButtonTheme}" Width="64" Height="64" Margin="0,0,0,0" Click="LanguageButton_Pl">
+                            <Image Source="pack://application:,,,/Images/Settings/pl.png"/>
+                        </Button>
+                    </DockPanel>
                 </StackPanel>   
             </Border>
-            
 
-            <StackPanel Grid.Column="1" Margin="0,0,40,0" Background="{DynamicResource BackgroundColor1}">
-                <TextBlock FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10">Theme Mode</TextBlock>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Light" Width="32" Height="32" Margin="0,0,10,0" Click="ThemeButton_Light" />
-                    <Button Content="Dark" Width="32" Height="32" Margin="0,0,10,0" Click="ThemeButton_Dark" />
+            <Border Grid.Column="1" CornerRadius="15" Background="{DynamicResource BackgroundColor1}" Margin="0,0,40,0">
+                <StackPanel>
+                    <Label Content="{x:Static language:Lang.Theme_mode}" FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <DockPanel Margin="10,10,100,10">
+                        <Button Style="{StaticResource ControlButtonTheme}" Width="64" Height="64" Margin="0,0,0,0" Click="ThemeButton_Light">
+                            <Image Source="pack://application:,,,/Images/Settings/sun.png"/>
+                        </Button>
+                    </DockPanel>
+                    <DockPanel Margin="100,50,10,10">
+                        <Button Style="{StaticResource ControlButtonTheme}" Width="64" Height="64" Margin="0,0,0,0"  Click="ThemeButton_Dark">
+                            <Image Source="pack://application:,,,/Images/Settings/moon.png"/>
+                        </Button>
+                    </DockPanel>
                 </StackPanel>
-            </StackPanel>
+            </Border>
 
-            <StackPanel Grid.Column="2" Margin="0,0,40,0" Background="{DynamicResource BackgroundColor1}">
-                <TextBlock  FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10">About Us</TextBlock>
-                <TextBlock>
-            Wersja aplikacji: 1.0.0
-            Data: 22.06.2023
-            Autorzy:
-            Autor1
-            Autor2
-            Autor3
-                </TextBlock>
-            </StackPanel>
+            <Border Grid.Column="2" CornerRadius="15" Background="{DynamicResource BackgroundColor1}" Margin="0,0,40,0">
+                <StackPanel>
+                    <Label Content="{x:Static language:Lang.About_Us}"  FontSize="18" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,0,0,10" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock FontSize="15" FontFamily="Bold" Foreground="{DynamicResource FontColor1}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="20,0,10,5">Wersja aplikacji: 1.0.0</TextBlock>
+                    <TextBlock FontSize="15" FontFamily="Bold" Foreground="{DynamicResource FontColor1}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="20,0,10,5">Data: 22.06.2023</TextBlock>
+                    <TextBlock FontSize="15" FontFamily="Bold" Foreground="{DynamicResource FontColor1}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="20,0,10,5">Autorzy:</TextBlock>
+                    <TextBlock FontSize="15" FontFamily="Bold" Foreground="{DynamicResource FontColor1}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="20,0,10,5">Michał Wołosewicz </TextBlock>
+                    <TextBlock FontSize="15" FontFamily="Bold" Foreground="{DynamicResource FontColor1}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="20,0,10,5">Patryk Wójtowicz </TextBlock>
+                    <TextBlock FontSize="15" FontFamily="Bold" Foreground="{DynamicResource FontColor1}" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="20,0,10,5">Magda  Zaborowska</TextBlock>
+                </StackPanel>
+            </Border>
         </Grid>
 
 
-        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <DockPanel VerticalAlignment="Center">
                 <!-- Add your player control buttons and volume controls here -->
             </DockPanel>

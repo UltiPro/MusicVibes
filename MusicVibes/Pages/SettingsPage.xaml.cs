@@ -14,11 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Effects;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml.Linq;
 
 namespace MusicVibes.Pages
 {
     public partial class SettingsPage : Page
     {
+
         public SettingsPage()
         {
             InitializeComponent();
@@ -28,12 +31,14 @@ namespace MusicVibes.Pages
         {
             Properties.Settings.Default.languageCode = "pl-PL";
             Properties.Settings.Default.Save();
+            System.Windows.MessageBox.Show("Aby zmienić język, proszę ponownie uruchomić aplikację.", "Zmiana języka", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void LanguageButton_En(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.languageCode = "en-US";
             Properties.Settings.Default.Save();
+            System.Windows.MessageBox.Show("To change the language, please restart the application.", "Language Change", MessageBoxButton.OK, MessageBoxImage.Information);          
         }
 
         private void ThemeButton_Light(object sender, RoutedEventArgs e)
@@ -45,18 +50,23 @@ namespace MusicVibes.Pages
 
             System.Windows.Application.Current.Resources["FontColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
             System.Windows.Application.Current.Resources["FontColor2"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f72585"));
+
+            System.Windows.Application.Current.Resources["BorderColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
         }
 
         private void ThemeButton_Dark(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Resources["BackgroundColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#CF6679"));
-            System.Windows.Application.Current.Resources["BackgroundColor2"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#252525"));
-            System.Windows.Application.Current.Resources["BackgroundColor3"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#03dac6"));
-            System.Windows.Application.Current.Resources["WhiteSpecial"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#d3d3d3"));
+            System.Windows.Application.Current.Resources["BackgroundColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#0C134F"));
+            System.Windows.Application.Current.Resources["BackgroundColor2"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#1D267D"));
+            System.Windows.Application.Current.Resources["BackgroundColor3"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#5C469C"));
+            System.Windows.Application.Current.Resources["WhiteSpecial"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#635985"));
 
             System.Windows.Application.Current.Resources["FontColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bb86fc"));
             System.Windows.Application.Current.Resources["FontColor2"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6200ee"));
+
+            System.Windows.Application.Current.Resources["BorderColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bb86fc"));       
         }
+
     }
 }
 

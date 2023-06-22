@@ -61,11 +61,56 @@ namespace MusicVibes.Properties.Langs {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu About Us.
+        /// </summary>
+        public static string About_Us {
+            get {
+                return ResourceManager.GetString("About Us", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Add playlist.
+        /// </summary>
+        public static string Add_playlist {
+            get {
+                return ResourceManager.GetString("Add playlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Duration.
+        /// </summary>
+        public static string Duration {
+            get {
+                return ResourceManager.GetString("Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu English.
         /// </summary>
         public static string en {
             get {
                 return ResourceManager.GetString("en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu To change the language, restart the application..
+        /// </summary>
+        public static string LanSet {
+            get {
+                return ResourceManager.GetString("LanSet", resourceCulture);
             }
         }
         
@@ -84,6 +129,24 @@ namespace MusicVibes.Properties.Langs {
         public static string Main {
             get {
                 return ResourceManager.GetString("Main", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Name.
+        /// </summary>
+        public static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Now playing: .
+        /// </summary>
+        public static string Now_playing {
+            get {
+                return ResourceManager.GetString("Now playing", resourceCulture);
             }
         }
         
@@ -138,6 +201,15 @@ namespace MusicVibes.Properties.Langs {
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Theme mode.
+        /// </summary>
+        public static string Theme_mode {
+            get {
+                return ResourceManager.GetString("Theme mode", resourceCulture);
             }
         }
     }
