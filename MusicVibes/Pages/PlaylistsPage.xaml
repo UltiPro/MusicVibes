@@ -1,8 +1,8 @@
 ﻿<Page x:Class="MusicVibes.Pages.PlaylistsPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:MusicVibes.Pages"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="860"
@@ -20,16 +20,23 @@
 			</StackPanel>
 		</Border>
 		<StackPanel Grid.Row="1" Margin="20" Background="White">
-			<Button Margin="0,4,0,5" Foreground="#231942" Background="#e0b1cb" FontSize="24" Padding="20 10" BorderBrush="Transparent" FontWeight="Bold"  Click="AddPlaylist_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
-				Dodaj playlistę
-			</Button>
-			<StackPanel x:Name="PlaylistsStackPanel" Margin="10" VerticalAlignment="Top"/>
+				<Button Style="{StaticResource PlaylistButtonTheme}" Background="#e0b1cb" Margin="0,4,0,5" FontSize="24" Padding="20 10" BorderBrush="Transparent" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="pack://application:,,,/Images/PlaylistImages/Add.png" Style="{StaticResource PlayerControlImage}" />
+						<TextBlock>Dodaj playlistę</TextBlock>
+					</StackPanel>
+				</Button>
+			
+			<ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Hidden">
+				<StackPanel x:Name="PlaylistsStackPanel" Margin="10" VerticalAlignment="Top">
+				</StackPanel>
+			</ScrollViewer>
 
 
 		</StackPanel>
 		<Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
 			<DockPanel VerticalAlignment="Center">
-				<!-- Add your player control buttons and volume controls here -->
 			</DockPanel>
 		</Border>
 	</Grid>

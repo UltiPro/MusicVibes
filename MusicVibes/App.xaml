@@ -31,6 +31,7 @@
                 <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/CloseButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/ControlButtonTheme.xaml" />
+				<ResourceDictionary Source="Themes/PlaylistButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/AppSliderTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

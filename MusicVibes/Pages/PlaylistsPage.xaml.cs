@@ -24,10 +24,14 @@ namespace MusicVibes.Pages
     {
         private const string PlaylistsFilePath = "playlistsPath.txt";
         private List<string> playlistPaths;
-
+        public delegate void OnPlaylistChange(object sender, RoutedEventArgs e, string path);
+        public event OnPlaylistChange onPlaylistChange;
+        ResourceDictionary resources = new ResourceDictionary();
+        
         public PlaylistsPage()
         {
             InitializeComponent();
+            resources.Source = new Uri("../Themes/PlaylistButtonTheme.xaml", UriKind.RelativeOrAbsolute);
             LoadPlaylists();
         }
         private void AddPlaylist_Click(object sender, RoutedEventArgs e)
@@ -86,33 +90,60 @@ namespace MusicVibes.Pages
                         StackPanel playlistPanel = new StackPanel();
                         playlistPanel.Orientation = Orientation.Horizontal;
 
+
                         Button playlistButton = new Button();
-                        playlistButton.Content = Path.GetFileName(playlistPath).ToUpper();
-                        playlistButton.Tag = playlistPath;
-                        playlistButton.Click += PlaylistButton_Click;
-                        playlistButton.Margin = new Thickness(0, 4, 0, 5);
+                        //playlistButton.Margin = new Thickness(0, 4, 10, 5);
                         playlistButton.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
                         playlistButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0b1cb"));
-                        playlistButton.FontSize = 24;
+                        playlistButton.FontSize = 20;
                         playlistButton.Padding = new Thickness(20, 10, 20, 10);
                         playlistButton.BorderBrush = Brushes.Transparent;
                         playlistButton.HorizontalAlignment = HorizontalAlignment.Left;
+                        playlistButton.Style = (Style)resources["PlaylistButtonTheme"];
+
+                        StackPanel playlistButtonContent = new StackPanel();
+                        playlistButtonContent.Orientation = Orientation.Horizontal;
+
+                        Image playlistIcon = new Image();
+                        playlistIcon.Source = new BitmapImage(new Uri("pack://application:,,,/Images/PlaylistImages/Folder.png", UriKind.RelativeOrAbsolute));
+                        playlistIcon.Width = 24;
+                        playlistIcon.Height = 24;
+                        playlistIcon.Margin = new Thickness(5, 2, 5, 2);
+
+                        TextBlock playlistName = new TextBlock();
+                        playlistName.Text = Path.GetFileName(playlistPath).ToUpper();
+
+                        playlistButtonContent.Children.Add(playlistIcon);
+                        playlistButtonContent.Children.Add(playlistName);
+
+                        playlistButton.Content = playlistButtonContent;
+                        playlistButton.Tag = playlistPath;
+                        playlistButton.Click += PlaylistButton_Click;
 
                         Button deleteButton = new Button();
-                        deleteButton.Content = "Usuń";
+                        
                         deleteButton.Tag = playlistPath;
                         deleteButton.Click += DeleteButton_Click;
-                        deleteButton.Margin = new Thickness(0, 4, 0, 5);
+                        //deleteButton.Margin = new Thickness(0, 4, 0, 5);
                         deleteButton.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
                         deleteButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0b1cb"));
-                        deleteButton.FontSize = 24;
                         deleteButton.Padding = new Thickness(20, 10, 20, 10);
                         deleteButton.BorderBrush = Brushes.Transparent;
-
                         deleteButton.HorizontalAlignment = HorizontalAlignment.Right;
+                        deleteButton.Style = (Style)resources["PlaylistButtonTheme"];
 
-                        playlistPanel.Children.Add(playlistButton);
+
+                        Image deleteIcon = new Image();
+                        deleteIcon.Source = new BitmapImage(new Uri("pack://application:,,,/Images/PlaylistImages/Delete.png", UriKind.RelativeOrAbsolute));
+                        deleteIcon.Width = 24;
+                        deleteIcon.Height = 24;
+                        deleteIcon.Margin = new Thickness(1, 2, 5, 2);
+
+                        deleteButton.Content = deleteIcon;
+
+
                         playlistPanel.Children.Add(deleteButton);
+                        playlistPanel.Children.Add(playlistButton);
 
                         PlaylistsStackPanel.Children.Add(playlistPanel);
                     }
@@ -128,7 +159,7 @@ namespace MusicVibes.Pages
             Button playlistButton = (Button)sender;
             string playlistPath = playlistButton.Tag.ToString();
             // Wykonaj odpowiednie działania na podstawie wybranej playlisty
-            MessageBox.Show($"Wybrano playlistę: {playlistPath}");
+            onPlaylistChange(sender, e, playlistPath);
         }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
