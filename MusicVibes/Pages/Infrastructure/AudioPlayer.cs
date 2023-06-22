@@ -31,6 +31,10 @@ class AudioPlayer
             mainPage.ChangeMusic(new object(), new System.Windows.RoutedEventArgs(), mainPage.musicFiles.Count == 0 ? -1 : ++mainPage.currentId >= mainPage.musicFiles.Count ? 0 : mainPage.currentId);
         }
     }
-    public double CurrentTrackDuration { get { return WMP.controls.currentPosition; } }
+    public double CurrentTrackDuration
+    {
+        get { return WMP.controls.currentPosition; }
+        set { WMP.controls.currentPosition = value; }
+    }
     public string CurrentTrackDurationString { get { return WMP.controls.currentPositionString; } }
 }
