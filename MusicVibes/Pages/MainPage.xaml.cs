@@ -44,24 +44,14 @@ public partial class MainPage : Page
         InitializeComponent();
         MusicList.onMusicChange += ChangeMusic;
     }
-    public bool LoadFiles()
+    public bool LoadFilesFromDialog()
     {
         using (FBD.FolderBrowserDialog folderBrowserDialog = new FBD.FolderBrowserDialog())
-        { 
+        {
             try
             {
                 folderBrowserDialog.ShowDialog();
-                musicFiles.Clear();
-                WindowsMediaPlayerClass WMPC = new WindowsMediaPlayerClass();
-                IWMPMedia iWMPMedia;
-                int i = 1;
-                foreach (FileInfo musicFile in new DirectoryInfo(folderBrowserDialog.SelectedPath).GetFiles("*.*").Where(file => extensions.Contains(Path.GetExtension(file.FullName).TrimStart('.').ToLowerInvariant())))
-                {
-                    iWMPMedia = WMPC.newMedia(musicFile.FullName);
-                    musicFiles.Add(new MusicFile(i, musicFile.FullName, Path.GetFileNameWithoutExtension(musicFile.Name), iWMPMedia.duration, iWMPMedia.durationString));
-                    i++;
-                }
-                return true;
+                return LoadFiles(folderBrowserDialog.SelectedPath);
             }
             catch (Exception e)
             {
@@ -69,15 +59,38 @@ public partial class MainPage : Page
             }
         }
     }
+    public bool LoadFilesFromPlaylists(string path) => LoadFiles(path);
+    private bool LoadFiles(string path)
+    {
+        try
+        {
+            musicFiles.Clear();
+            WindowsMediaPlayerClass WMPC = new WindowsMediaPlayerClass();
+            IWMPMedia iWMPMedia;
+            int i = 1;
+            foreach (FileInfo musicFile in new DirectoryInfo(path).GetFiles("*.*").Where(file => extensions.Contains(Path.GetExtension(file.FullName).TrimStart('.').ToLowerInvariant())))
+            {
+                iWMPMedia = WMPC.newMedia(musicFile.FullName);
+                musicFiles.Add(new MusicFile(i, musicFile.FullName, Path.GetFileNameWithoutExtension(musicFile.Name), iWMPMedia.duration, iWMPMedia.durationString));
+                i++;
+            }
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
     private void UpdateTrackDuration()
     {
         while (!stopApp)
         {
-            Dispatcher.Invoke(() => {
+            Dispatcher.Invoke(() =>
+            {
                 if (isPlaying || DurationSlider.Value != audioPlayer.CurrentTrackDuration)
                 {
                     CurrentDurationInfo.Text = audioPlayer.CurrentTrackDurationString != string.Empty ? audioPlayer.CurrentTrackDurationString : "00:00";
-                    if(!isDragging) DurationSlider.Value = audioPlayer.CurrentTrackDuration;
+                    if (!isDragging) DurationSlider.Value = audioPlayer.CurrentTrackDuration;
                 }
             });
             Thread.Sleep(100);

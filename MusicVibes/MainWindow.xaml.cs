@@ -23,7 +23,7 @@ public partial class MainWindow : Window
 
     private void MainButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = mainPage;
 
-    private void OpenFolderButton_Click(object sender, RoutedEventArgs e) { if (mainPage.LoadFiles()) MainFrame.Content = mainPage; }
+    private void OpenFolderButton_Click(object sender, RoutedEventArgs e) { if (mainPage.LoadFilesFromDialog()) MainFrame.Content = mainPage; }
 
     private void PlaylistsButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = playlistsPage;
 
@@ -34,4 +34,5 @@ public partial class MainWindow : Window
         mainPage.stopApp = true;
         Close();
     }
+    public void OpenFolderFromPlaylists(object sender, RoutedEventArgs e, string path) { if (mainPage.LoadFilesFromPlaylists(path)) MainFrame.Content = mainPage; }
 }
