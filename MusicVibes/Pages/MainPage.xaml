@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -22,7 +23,15 @@
 
         <uc:MusicList Grid.Row="1" x:Name="MusicList"/>
 
-        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
+        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}"
+                Background="{DynamicResource BackgroundColor3}" Padding="3,1.5,3,0">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Margin="0,0,1,0" FontWeight="Bold" Foreground="{DynamicResource FontColor1}">Search:</TextBlock>
+                <TextBox DockPanel.Dock="Right" Style="{StaticResource SearchBoxTheme}" TextChanged="SearchTextChanged" />
+            </DockPanel>
+        </Border>
+
+        <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <DockPanel VerticalAlignment="Center">
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
                     <Button Style="{StaticResource ControlButtonTheme}" Click="SkipStart" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
