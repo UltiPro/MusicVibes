@@ -13,10 +13,8 @@
             <SolidColorBrush x:Key="FontColor2">#f72585</SolidColorBrush>
             <SolidColorBrush x:Key="WhiteSpecial">#ecf8f8</SolidColorBrush>
             <SolidColorBrush x:Key="RedSpecial">#8b0404</SolidColorBrush>
-            <!-- co z tym start -->
             <SolidColorBrush x:Key="RandomColor1">#FBD1B1</SolidColorBrush>
             <SolidColorBrush x:Key="RandomColor2">#FFEDE1</SolidColorBrush>
-            <!-- co z tym end -->
             <Style x:Key="TextBlockApp" TargetType="TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>

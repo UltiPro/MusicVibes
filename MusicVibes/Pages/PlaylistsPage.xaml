@@ -8,6 +8,7 @@
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="860"
       Title="PlaylistsPage">
+<<<<<<< HEAD
     <Grid Background="{DynamicResource WhiteSpecial}">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -33,6 +34,30 @@
             <ScrollViewer VerticalScrollBarVisibility="Hidden" 
                       HorizontalScrollBarVisibility="Hidden" Height="330">
                 <StackPanel x:Name="PlaylistsStackPanel" Margin="10" VerticalAlignment="Top" MinHeight="320">
+=======
+    <Grid Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40"></RowDefinition>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="40"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor1}" Background="{StaticResource BackgroundColor2}">
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+				<TextBlock FontSize="24" FontWeight="Bold" Foreground="{StaticResource FontColor1}" xml:space="preserve">Playlists</TextBlock>
+			</StackPanel>
+		</Border>
+		<StackPanel Grid.Row="1" Margin="20" Background="White">
+				<Button Style="{StaticResource PlaylistButtonTheme}" Click="AddPlaylist_Click" Background="#e0b1cb" Margin="0,4,0,5" FontSize="24" Padding="20 10" BorderBrush="Transparent" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+					<StackPanel Orientation="Horizontal">
+						<Image Source="pack://application:,,,/Images/PlaylistImages/Add.png" Style="{StaticResource PlayerControlImage}" />
+						<TextBlock>Dodaj playlistę</TextBlock>
+					</StackPanel>
+				</Button>
+			
+			<ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Hidden">
+                <StackPanel x:Name="PlaylistsStackPanel" Margin="10" VerticalAlignment="Top">
+>>>>>>> 9aa242fc00b1cf28b65c01ad5c235dd4c939575b
                 </StackPanel>
             </ScrollViewer>
 
