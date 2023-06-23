@@ -52,6 +52,7 @@ namespace MusicVibes.Pages
             System.Windows.Application.Current.Resources["FontColor2"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#f72585"));
 
             System.Windows.Application.Current.Resources["BorderColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
+            SaveThemeColorsToFile();
         }
 
         private void ThemeButton_Dark(object sender, RoutedEventArgs e)
@@ -64,9 +65,34 @@ namespace MusicVibes.Pages
             System.Windows.Application.Current.Resources["FontColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bb86fc"));
             System.Windows.Application.Current.Resources["FontColor2"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6200ee"));
 
-            System.Windows.Application.Current.Resources["BorderColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bb86fc"));       
+            System.Windows.Application.Current.Resources["BorderColor1"] = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bb86fc"));
+            SaveThemeColorsToFile();
         }
 
+        private void SaveThemeColorsToFile()
+        {
+            string filePath = "theme.txt";
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    writer.WriteLine(((SolidColorBrush)System.Windows.Application.Current.Resources["BackgroundColor1"]).Color.ToString());
+                    writer.WriteLine(((SolidColorBrush)System.Windows.Application.Current.Resources["BackgroundColor2"]).Color.ToString());
+                    writer.WriteLine(((SolidColorBrush)System.Windows.Application.Current.Resources["BackgroundColor3"]).Color.ToString());
+                    writer.WriteLine(((SolidColorBrush)System.Windows.Application.Current.Resources["WhiteSpecial"]).Color.ToString());
+                    writer.WriteLine(((SolidColorBrush)System.Windows.Application.Current.Resources["FontColor1"]).Color.ToString());
+                    writer.WriteLine(((SolidColorBrush)System.Windows.Application.Current.Resources["FontColor2"]).Color.ToString());
+                    writer.WriteLine(((SolidColorBrush)System.Windows.Application.Current.Resources["BorderColor1"]).Color.ToString());
+                }
+
+                Console.WriteLine("Udało się zapisać kolory");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("nie udało się zapisać kolorów");
+            }
+        }
     }
 }
 
