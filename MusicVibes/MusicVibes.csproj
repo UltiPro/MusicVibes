@@ -29,6 +29,9 @@
     <Resource Include="Images\Controls\Volume.png" />
     <Resource Include="Images\Controls\VolumeMute.png" />
     <Resource Include="Images\Logo.png" />
+	<Resource Include="Images\PlaylistImages\Folder.png" />
+	<Resource Include="Images\PlaylistImages\Add.png" />
+	<Resource Include="Images\PlaylistImages\Delete.png" />
   </ItemGroup>
 
   <ItemGroup>
