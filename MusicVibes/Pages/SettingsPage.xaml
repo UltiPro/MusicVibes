@@ -18,7 +18,7 @@
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
 
-                <Label FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve" Content="{x:Static language:Lang.Settings}"></Label>
+                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve" Text="{x:Static language:Lang.Settings}"></TextBlock>
 
             </StackPanel>
         </Border>
