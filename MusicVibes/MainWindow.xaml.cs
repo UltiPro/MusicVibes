@@ -17,6 +17,7 @@ public partial class MainWindow : Window
         settingsPage = new SettingsPage();
         InitializeComponent();
         MainFrame.Content = mainPage;
+        playlistsPage.onPlaylistChange += OpenFolderFromPlaylists;
     }
 
     private void App_MouseDown(object sender, MouseButtonEventArgs e) { if (e.ChangedButton == MouseButton.Left) DragMove(); }
