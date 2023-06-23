@@ -20,7 +20,7 @@
 			</StackPanel>
 		</Border>
 		<StackPanel Grid.Row="1" Margin="20" Background="White">
-				<Button Style="{StaticResource PlaylistButtonTheme}" Click="AddPlaylist_Click" Background="#e0b1cb" Margin="0,4,0,5" FontSize="24" Padding="20 10" BorderBrush="Transparent" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Button Style="{StaticResource PlaylistButtonTheme}" MouseDoubleClick="AddPlaylist_Click" Background="#e0b1cb" Margin="0,4,0,5" FontSize="24" Padding="20 10" BorderBrush="Transparent" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
 					<StackPanel Orientation="Horizontal">
 						<Image Source="pack://application:,,,/Images/PlaylistImages/Add.png" Style="{StaticResource PlayerControlImage}" />
 						<TextBlock>Dodaj playlistę</TextBlock>

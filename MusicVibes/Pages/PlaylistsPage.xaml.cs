@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.IO;
 using Microsoft.Win32;
 using FBD = System.Windows.Forms;
+using System.Security.AccessControl;
 
 namespace MusicVibes.Pages
 {
@@ -52,23 +53,36 @@ namespace MusicVibes.Pages
         {
             try
             {
-                // Tworzenie pliku playlistsPath.txt, jeśli nie istnieje
+                // Sprawdź, czy plik playlistsPath.txt już istnieje
                 if (!File.Exists(PlaylistsFilePath))
                 {
-                    File.Create(PlaylistsFilePath).Close();
+                    // Twórz nowy plik z uprawnieniami do odczytu i zapisu dla wszystkich użytkowników
+                    using (FileStream fileStream = File.Create(PlaylistsFilePath))
+                    {
+                        fileStream.Close();
+                        FileSecurity fileSecurity = new FileSecurity(PlaylistsFilePath, AccessControlSections.Access);
+                        FileInfo fileInfo = new FileInfo(PlaylistsFilePath);
+                        fileInfo.SetAccessControl(fileSecurity);
+                    }
                 }
 
                 List<string> existingPaths = new List<string>(File.ReadAllLines(PlaylistsFilePath));
 
-                // Sprawdzanie, czy ścieżka jest już zapisana w pliku
+                // Sprawdź, czy ścieżka jest już zapisana w pliku
                 if (existingPaths.Contains(playlistPath))
                 {
                     MessageBox.Show("Ta ścieżka już istnieje w pliku.");
                     return;
                 }
-                // Zapisywanie ścieżki folderu do pliku playlistsPath.txt
+
+                // Dodaj nową ścieżkę do listy i zapisz do pliku
                 existingPaths.Add(playlistPath);
                 File.WriteAllLines(PlaylistsFilePath, existingPaths);
+
+                // Ustaw uprawnienia do odczytu i zapisu dla wszystkich użytkowników na pliku
+                FileSecurity fileSecurity2 = new FileSecurity(PlaylistsFilePath, AccessControlSections.Access);
+                FileInfo fileInfo2 = new FileInfo(PlaylistsFilePath);
+                fileInfo2.SetAccessControl(fileSecurity2);
             }
             catch (Exception ex)
             {
