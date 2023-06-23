@@ -32,6 +32,7 @@
                 <ResourceDictionary Source="Themes/CloseButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/ControlButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/AppSliderTheme.xaml" />
+                <ResourceDictionary Source="Themes/SearchBoxTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
