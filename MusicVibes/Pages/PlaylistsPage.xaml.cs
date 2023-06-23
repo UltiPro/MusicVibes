@@ -163,18 +163,17 @@ namespace MusicVibes.Pages
 
             return playlistButton;
         }
-
-                        Button deleteButton = new Button();
-                        
-                        deleteButton.Tag = playlistPath;
-                        deleteButton.Click += DeleteButton_Click;
-                        //deleteButton.Margin = new Thickness(0, 4, 0, 5);
-                        deleteButton.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#231942"));
-                        deleteButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#e0b1cb"));
-                        deleteButton.Padding = new Thickness(20, 10, 20, 10);
-                        deleteButton.BorderBrush = Brushes.Transparent;
-                        deleteButton.HorizontalAlignment = HorizontalAlignment.Right;
-                        deleteButton.Style = (Style)resources["PlaylistButtonTheme"];
+        private Button CreateDeleteButton(string playlistPath)
+        {
+            Button deleteButton = new Button();
+            deleteButton.Tag = playlistPath;
+            deleteButton.Click += DeleteButton_Click;
+            deleteButton.SetResourceReference(Control.ForegroundProperty, "FontColor1");
+            deleteButton.SetResourceReference(Control.BackgroundProperty, "BackgroundColor1");
+            deleteButton.Padding = new Thickness(20, 10, 20, 10);
+            deleteButton.BorderBrush = Brushes.Transparent;
+            deleteButton.HorizontalAlignment = HorizontalAlignment.Right;
+            deleteButton.Style = (Style)resources["PlaylistButtonTheme"];
 
             Image deleteIcon = new Image();
             deleteIcon.Source = new BitmapImage(new Uri("pack://application:,,,/Images/PlaylistImages/Delete.png", UriKind.RelativeOrAbsolute));
@@ -186,6 +185,9 @@ namespace MusicVibes.Pages
 
             return deleteButton;
         }
+
+        
+    
         private void PlaylistButton_Click(object sender, RoutedEventArgs e)
         {
             Button playlistButton = (Button)sender;
