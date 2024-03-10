@@ -3,28 +3,48 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
+      mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <TextBlock HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"
                        Foreground="{DynamicResource FontColor1}">Playlists</TextBlock>
         </Border>
 
-        <ScrollViewer Grid.Row="1" Background="{DynamicResource WhiteSpecial}" 
-                      VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden">
-            <StackPanel Name="Playlists" VerticalAlignment="Top"/>
-        </ScrollViewer>
+        <ListView Grid.Row="1" ItemsSource="{Binding playlistsPaths}" BorderThickness="0"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="-3,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Style="{StaticResource DeletePlaylistButtonTheme}" 
+                                Width="32" Click="DeletePlaylist"/>
+
+                        <Button Grid.Column="1" Style="{StaticResource OpenPlaylistButtonTheme}" 
+                                Width="32" Click="OpenPlaylist"/>
+
+                        <TextBlock Grid.Column="2" Text="{Binding}" FontSize="28" Margin="5,0,0,0"
+                                   Foreground="{DynamicResource FontColor1}" TextTrimming="CharacterEllipsis"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor3}">
             <Button Style="{StaticResource AddPlaylistButtonTheme}" Click="AddPlaylist">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Image Source="pack://application:,,,/Images/Controls/Add.png" Width="24"/>
+                    <Image Source="pack://application:,,,/Images/Management/Add.png" Width="24"/>
                     <Label FontSize="20" FontWeight="Bold" Foreground="{DynamicResource FontColor1}">Add Playlist</Label>
                 </StackPanel>
             </Button>
