@@ -7,6 +7,7 @@ public class MusicFile
     public string FileName { get; }
     public double FileDuration { get; }
     public string FileDurationString { get; }
+
     public MusicFile(int FileId, string FilePath, string FileName, double FileDuration, string FileDurationString)
     {
         this.FileId = FileId;
