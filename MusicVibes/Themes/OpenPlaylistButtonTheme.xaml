@@ -6,7 +6,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Image Source="pack://application:,,,/Images/Management/Open.png" 
-                               Width="{TemplateBinding Width}" Margin="-4,3,0,0"/>
+                               Width="{TemplateBinding Width}" Margin="0,2,0,0"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
