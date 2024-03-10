@@ -33,6 +33,7 @@ public partial class MainPage : Page
     public ObservableCollection<MusicFile> musicFiles { get; } = new ObservableCollection<MusicFile>();
     public int currentId;
     public bool stopApp;
+
     public MainPage()
     {
         audioPlayer = new AudioPlayer(this);
@@ -47,6 +48,7 @@ public partial class MainPage : Page
         MusicList.onMusicChange += ChangeMusic;
         theardRefresher.Start();
     }
+
     public bool LoadFilesFromDialog()
     {
         using (FBD.FolderBrowserDialog folderBrowserDialog = new FBD.FolderBrowserDialog())
@@ -62,7 +64,9 @@ public partial class MainPage : Page
             }
         }
     }
+
     public bool LoadFilesFromPlaylists(string path) => LoadFiles(path);
+
     private bool LoadFiles(string path)
     {
         try
@@ -84,6 +88,7 @@ public partial class MainPage : Page
             return false;
         }
     }
+
     private void UpdateTrackDuration()
     {
         while (!stopApp)
@@ -99,6 +104,7 @@ public partial class MainPage : Page
             Thread.Sleep(100);
         }
     }
+
     public void ChangeMusic(object sender, RoutedEventArgs e, int id)
     {
         if (musicFiles.Count == 0) return;
@@ -111,14 +117,17 @@ public partial class MainPage : Page
         DurationSlider.Value = 0.0d;
         DurationInfo.Text = musicFiles[currentId].FileDurationString;
     }
+
     private void SearchTextChanged(object sender, TextChangedEventArgs e)
     {
         foreach (MusicFile musicFile in deletedMusicFiles) musicFiles.Insert(musicFile.FileId - 1, musicFile);
         deletedMusicFiles = musicFiles.ToList().Where(e => !e.FileName.ToLower().Contains((sender as TextBox).Text.ToLower())).ToList();
         foreach (MusicFile musicFile in deletedMusicFiles) musicFiles.RemoveAt(musicFiles.IndexOf(musicFile));
     }
+
     private void SkipStart(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : !audioPlayer.IsJustStarted() ? currentId : --currentId < 0 ? (musicFiles.Count - 1) : currentId);
     private void Skip10Start(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : -10);
+
     private void StartPauseMusic(object sender, RoutedEventArgs e)
     {
         if (currentId == -1) ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : 0);
@@ -137,14 +146,17 @@ public partial class MainPage : Page
             }
         }
     }
+
     private void Skip10End(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : 10);
     public void SkipEnd(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : ++currentId >= musicFiles.Count ? 0 : currentId);
     private void DurationChangedStart(object sender, DragStartedEventArgs e) => isDragging = true;
+
     private void DurationChangedEnd(object sender, DragCompletedEventArgs e)
     {
         isDragging = false;
         audioPlayer.CurrentTrackDuration = DurationSlider.Value;
     }
+
     private void MuteUnmuteVolume(object sender, RoutedEventArgs e)
     {
         isMute = !isMute;
@@ -152,6 +164,7 @@ public partial class MainPage : Page
         if (isMute) VolumeImage.Source = muteVolume;
         else VolumeImage.Source = unmuteVolume;
     }
+
     private void VolumeChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => audioPlayer.ChangeVolume(Convert.ToInt32((sender as Slider).Value));
     private void ControlMouseEnter(object sender, MouseEventArgs e) => (sender as Button).BeginAnimation(Button.OpacityProperty, new DoubleAnimation(1.0d, 0.65d, TimeSpan.FromSeconds(0.2d)));
     private void ControlMouseLeave(object sender, MouseEventArgs e) => (sender as Button).BeginAnimation(Button.OpacityProperty, new DoubleAnimation(0.65d, 1d, TimeSpan.FromSeconds(0.2d)));
