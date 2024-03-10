@@ -5,11 +5,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border BorderThickness="1" BorderBrush="{DynamicResource BorderColor1}" 
-                                Background="{TemplateBinding Background}">
-                            <Image Source="pack://application:,,,/Images/Management/Open.png" 
-                                   Width="{TemplateBinding Width}" Margin="-1.5,3,0,0"/>
-                        </Border>
+                        <Image Source="pack://application:,,,/Images/Management/Open.png" 
+                               Width="{TemplateBinding Width}" Margin="-4,3,0,0"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -20,7 +17,7 @@
         </Style.Setters>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BackgroundColor1}" />
+                <Setter Property="Opacity" Value="0.75" />
             </Trigger>
         </Style.Triggers>
     </Style>
