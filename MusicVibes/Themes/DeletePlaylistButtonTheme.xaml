@@ -5,8 +5,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Image Source="pack://application:,,,/Images/Management/Delete.png" 
-                               Width="{TemplateBinding Width}" Margin="0,1,0,0"/>
+                        <Image Source="pack://application:,,,/Images/Management/Delete.png" Width="{TemplateBinding Width}"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
