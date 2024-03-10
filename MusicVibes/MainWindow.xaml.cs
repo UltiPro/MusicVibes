@@ -20,13 +20,9 @@ public partial class MainWindow : Window
     }
 
     private void App_MouseDown(object sender, MouseButtonEventArgs e) { if (e.ChangedButton == MouseButton.Left) DragMove(); }
-
     private void MainButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = mainPage;
-
     private void OpenFolderButton_Click(object sender, RoutedEventArgs e) { if (mainPage.LoadFilesFromDialog()) MainFrame.Content = mainPage; }
-
     private void PlaylistsButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = playlistsPage;
-
     private void SettingsButton_Click(object sender, RoutedEventArgs e) => MainFrame.Content = settingsPage;
 
     private void QuitButton_Click(object sender, RoutedEventArgs e)
@@ -34,5 +30,6 @@ public partial class MainWindow : Window
         mainPage.stopApp = true;
         Close();
     }
+
     public void OpenFolderFromPlaylists(object sender, RoutedEventArgs e, string path) { if (mainPage.LoadFilesFromPlaylists(path)) MainFrame.Content = mainPage; }
 }
