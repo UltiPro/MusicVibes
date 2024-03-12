@@ -101,7 +101,7 @@ public partial class MainPage : Page
                     if (!isDragging) DurationSlider.Value = audioPlayer.CurrentTrackDuration;
                 }
             });
-            Thread.Sleep(200);
+            Thread.Sleep(100);
         }
     }
 
