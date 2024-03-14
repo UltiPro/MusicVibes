@@ -37,6 +37,10 @@ public partial class PlaylistsPage : Page
                 fileInfo.SetAccessControl(fileSecurity);
             }
         }
+        using (StreamReader settingsFile = new(AppContext.BaseDirectory + "/Settings"))
+        {
+            settingsFile.Close();
+        }
 
         try
         {
@@ -69,7 +73,7 @@ public partial class PlaylistsPage : Page
 
     private void DeletePlaylist(object sender, RoutedEventArgs e)
     {
-        int index = playlistsPaths.IndexOf(((sender as Button).Parent as Grid).Children.OfType<TextBlock>().FirstOrDefault().Text);
+        int index = playlistsPaths.IndexOf(((sender as Button).Parent as Grid).Children.OfType<TextBlock>().First().Text);
 
         if(index == -1) return;
 

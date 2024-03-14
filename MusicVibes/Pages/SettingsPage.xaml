@@ -9,6 +9,6 @@
       Title="SettingsPage">
 
     <Grid>
-        <TextBlock>Settings Page</TextBlock>
+        <TextBlock FlowDirection="LeftToRight">Settings Page</TextBlock>
     </Grid>
 </Page>

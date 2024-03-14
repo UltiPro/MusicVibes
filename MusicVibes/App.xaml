@@ -13,10 +13,14 @@
             <SolidColorBrush x:Key="FontColor2">#f72585</SolidColorBrush>
             <SolidColorBrush x:Key="WhiteSpecial">#ecf8f8</SolidColorBrush>
             <SolidColorBrush x:Key="RedSpecial">#8b0404</SolidColorBrush>
-            <!-- co z tym start -->
-            <SolidColorBrush x:Key="RandomColor1">#FBD1B1</SolidColorBrush>
-            <SolidColorBrush x:Key="RandomColor2">#FFEDE1</SolidColorBrush>
+
+            <!-- co z tym start  ikonka jedna-->
+            <SolidColorBrush x:Key="GreenSepcial">#48632c</SolidColorBrush>
+            <SolidColorBrush x:Key="LightGreenSepcial">#5E9C76</SolidColorBrush>
+            <SolidColorBrush x:Key="CreamySpecial">#FBD1B1</SolidColorBrush>
+            <SolidColorBrush x:Key="LightCreamySpecial">#FFEDE1</SolidColorBrush>
             <!-- co z tym end -->
+            
             <Style x:Key="TextBlockApp" TargetType="TextBlock">
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -33,6 +37,9 @@
                 <ResourceDictionary Source="Themes/ControlButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/AppSliderTheme.xaml" />
                 <ResourceDictionary Source="Themes/SearchBoxTheme.xaml" />
+                <ResourceDictionary Source="Themes/AddPlaylistButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/DeletePlaylistButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/OpenPlaylistButtonTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
