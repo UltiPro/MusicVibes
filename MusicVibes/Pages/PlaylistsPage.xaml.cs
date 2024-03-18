@@ -1,11 +1,11 @@
-﻿#pragma warning disable CS8618, CS8600, CS8602
+﻿#pragma warning disable CS8618, CS8602
 
 using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using SWC = System.Windows.Forms;
+using SWF = System.Windows.Forms;
 using System.Security.AccessControl;
 using System.Collections.ObjectModel;
 using Microsoft.Win32;
@@ -14,7 +14,7 @@ namespace MusicVibes.Pages;
 
 public partial class PlaylistsPage : Page
 {
-    private const string playlistsFilePath = "playlistsPaths.txt";
+    private const string playlistsFilePath = "playlistsPaths";
     public ObservableCollection<string> playlistsPaths { get; } = new ObservableCollection<string>();
     public delegate void OnPlaylistChange(object sender, RoutedEventArgs e, string path);
     public event OnPlaylistChange onPlaylistChange;
@@ -29,17 +29,12 @@ public partial class PlaylistsPage : Page
     {
         if (!File.Exists(playlistsFilePath))
         {
-            using (FileStream fileStream = File.Create(playlistsFilePath))
+            using (FileStream playlistsFile = File.Create(playlistsFilePath))
             {
-                fileStream.Close();
-                FileSecurity fileSecurity = new FileSecurity(playlistsFilePath, AccessControlSections.Access);
-                FileInfo fileInfo = new FileInfo(playlistsFilePath);
-                fileInfo.SetAccessControl(fileSecurity);
+                playlistsFile.Close();
+                new FileInfo(playlistsFilePath).SetAccessControl(
+                    new FileSecurity(playlistsFilePath, AccessControlSections.Access));
             }
-        }
-        using (StreamReader settingsFile = new(AppContext.BaseDirectory + "/Settings"))
-        {
-            settingsFile.Close();
         }
 
         try
@@ -48,7 +43,7 @@ public partial class PlaylistsPage : Page
         }
         catch (Exception ex)
         {
-            MessageBox.Show($"Wystąpił błąd podczas zapisywania ścieżki playlisty: {ex.Message}");
+            MessageBox.Show($"An error occurred while saving paths to playlists: {ex.Message}");
         }
     }
 
@@ -61,9 +56,9 @@ public partial class PlaylistsPage : Page
 
     private void AddPlaylist(object sender, RoutedEventArgs e)
     {
-        using (SWC.FolderBrowserDialog folderBrowserDialog = new SWC.FolderBrowserDialog())
+        using (SWF.FolderBrowserDialog folderBrowserDialog = new SWF.FolderBrowserDialog())
         {
-            if (folderBrowserDialog.ShowDialog() == SWC.DialogResult.OK)
+            if (folderBrowserDialog.ShowDialog() == SWF.DialogResult.OK)
             {
                 playlistsPaths.Add(folderBrowserDialog.SelectedPath);
                 SavePlaylists();
@@ -75,7 +70,7 @@ public partial class PlaylistsPage : Page
     {
         int index = playlistsPaths.IndexOf(((sender as Button).Parent as Grid).Children.OfType<TextBlock>().First().Text);
 
-        if(index == -1) return;
+        if (index == -1) return;
 
         playlistsPaths.RemoveAt(index);
 
