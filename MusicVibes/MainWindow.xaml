@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Height="600" Width="1050" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         ResizeMode="NoResize" AllowsTransparency="True" Background="Transparent">
-    <Border CornerRadius="40" MouseDown="App_MouseDown">
+    <Border CornerRadius="40" MouseDown="App_MouseDown" Background="{DynamicResource BorderColor1}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190"/>
