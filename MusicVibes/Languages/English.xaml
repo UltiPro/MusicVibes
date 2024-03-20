@@ -6,7 +6,7 @@
     <system:String x:Key="STRPlaylists">Playlists</system:String>
     <system:String x:Key="STRSettings">Settings</system:String>
     <system:String x:Key="STRQuit">Quit</system:String>
-    <system:String x:Key="STRNow_Playing" xml:space="preserve">Now playing: </system:String>
+    <system:String x:Key="STRNow_Playing" xml:space="preserve">Playback: </system:String>
     <system:String x:Key="STRId">Id</system:String>
     <system:String x:Key="STRName">Name</system:String>
     <system:String x:Key="STRDuration">Duration</system:String>
