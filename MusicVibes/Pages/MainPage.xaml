@@ -16,7 +16,7 @@
 
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve" Text="{DynamicResource Now_playing}" />
+                <TextBlock FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" xml:space="preserve" Text="{DynamicResource Now Playing}" />
                 <TextBlock Name="NowPlaying" Text="----------" MaxWidth="700" FontSize="24" Foreground="{DynamicResource FontColor1}" TextTrimming="CharacterEllipsis"/>
             </StackPanel>
         </Border>
