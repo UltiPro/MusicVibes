@@ -14,7 +14,7 @@
 
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <TextBlock HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource FontColor1}">Playlists</TextBlock>
+                       Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRPlaylists}" />
         </Border>
 
         <ListView Grid.Row="1" ItemsSource="{Binding playlistsPaths}" BorderThickness="0"
@@ -45,7 +45,7 @@
             <Button Style="{StaticResource AddPlaylistButtonTheme}" Click="AddPlaylist">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Image Source="pack://application:,,,/Images/Management/Add.png" Width="24"/>
-                    <Label FontSize="20" FontWeight="Bold" Foreground="{DynamicResource FontColor1}">Add Playlist</Label>
+                    <Label FontSize="20" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Content="{DynamicResource Add Playlist}" />
                 </StackPanel>
             </Button>
         </Border>
