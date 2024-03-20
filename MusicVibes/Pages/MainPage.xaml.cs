@@ -48,6 +48,7 @@ public partial class MainPage : Page
         currentId = -1;
         stopApp = false;
         InitializeComponent();
+        VolumeSlider.Value = volume;
         MusicList.onMusicChange += ChangeMusic;
         theardRefresher.Start();
     }

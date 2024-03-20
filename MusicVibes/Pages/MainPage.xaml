@@ -56,7 +56,7 @@
                         <Image Source="pack://application:,,,/Images/Controls/Volume.png" Name="VolumeImage" Style="{StaticResource PlayerControlImage}"/>
                     </Button>
                     <Slider Name="VolumeSlider" Width="100" VerticalAlignment="Center" AutoToolTipPlacement="TopLeft"
-                            Minimum="0" Maximum="100" Value="50" TickFrequency="1" IsSnapToTickEnabled="True"
+                            Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"
                             Style="{StaticResource AppSlider}" ValueChanged="VolumeChanged" />
                 </StackPanel>
 
