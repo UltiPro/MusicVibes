@@ -1,20 +1,30 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Security.AccessControl;
+using System;
+using System.Windows;
 using System.Windows.Input;
 using MusicVibes.Pages;
+using System.Collections.Generic;
 
 namespace MusicVibes;
 
 public partial class MainWindow : Window
 {
+    private const string settingsFilePath = "settings";
     public MainPage mainPage;
     public PlaylistsPage playlistsPage;
     public SettingsPage settingsPage;
 
     public MainWindow()
     {
-        mainPage = new MainPage();
+        List<string?> settings = new List<string?>();
+        if (File.Exists(settingsFilePath))
+            foreach (string setting in File.ReadAllLines(settingsFilePath))
+                settings.Add(setting);
+        while (settings.Count < 4) settings.Add(null);
+        mainPage = new MainPage(int.TryParse(settings[0], out int vol) ? vol : 50, settings[1] ?? "");
         playlistsPage = new PlaylistsPage();
-        settingsPage = new SettingsPage();
+        settingsPage = new SettingsPage(settings[2] ?? "Light", settings[3] ?? "English");
         InitializeComponent();
         MainFrame.Content = mainPage;
         playlistsPage.onPlaylistChange += OpenFolderFromPlaylists;
@@ -29,6 +39,29 @@ public partial class MainWindow : Window
     private void QuitButton_Click(object sender, RoutedEventArgs e)
     {
         mainPage.stopApp = true;
+        if (!File.Exists(settingsFilePath))
+        {
+            using (FileStream settingsFile = File.Create(settingsFilePath))
+            {
+                settingsFile.Close();
+                new FileInfo(settingsFilePath).SetAccessControl(
+                    new FileSecurity(settingsFilePath, AccessControlSections.Access));
+            }
+        }
+        try
+        {
+            File.WriteAllLines(settingsFilePath, new List<string>
+            {
+                mainPage.currentVolume.ToString(),
+                mainPage.currentPath ?? "",
+                settingsPage.selectedTheme,
+                settingsPage.selectedLanguage
+            });
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while saving settings: {ex.Message}");
+        }
         Close();
     }
 
