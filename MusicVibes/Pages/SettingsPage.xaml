@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <Grid Background="{DynamicResource BorderColor1}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -34,8 +34,15 @@
             </Border>
 
             <ListView Grid.Row="1" ItemsSource="{Binding themes}" BorderThickness="0,0,1,0" BorderBrush="{DynamicResource BorderColor1}"
-                      ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      MouseDoubleClick="Theme_MouseDoubleClick" SelectionChanged="Theme_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="-3,0,0,0">
+                            <TextBlock Text="{Binding}" FontSize="16" Foreground="{DynamicResource FontColor1}" TextTrimming="CharacterEllipsis"/>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
 
@@ -51,8 +58,15 @@
             </Border>
 
             <ListView Grid.Row="1" ItemsSource="{Binding languages}" BorderThickness="0"
-                      ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
-
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                      MouseDoubleClick="Language_MouseDoubleClick" SelectionChanged="Language_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="-3,0,0,0">
+                            <TextBlock Text="{Binding}" FontSize="16" Foreground="{DynamicResource FontColor1}" TextTrimming="CharacterEllipsis"/>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
     </Grid>
