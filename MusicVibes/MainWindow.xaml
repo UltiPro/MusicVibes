@@ -23,13 +23,13 @@
                         <Label HorizontalContentAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,-5,0,0">Music Vibes</Label>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Margin="15,0,15,0">
-                        <RadioButton Content="Quit" Style="{StaticResource CloseButtonTheme}" Click="QuitButton_Click"/>
+                        <RadioButton Content="{DynamicResource Quit}" Style="{StaticResource CloseButtonTheme}" Click="QuitButton_Click"/>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Margin="15,15,15,0">
-                        <RadioButton Content="Main" Style="{StaticResource MenuButtonTheme}" Click="MainButton_Click"/>
-                        <RadioButton Content="Open Folder" Style="{StaticResource MenuButtonTheme}" Click="OpenFolderButton_Click"/>
-                        <RadioButton Content="Playlists" Style="{StaticResource MenuButtonTheme}" Click="PlaylistsButton_Click"/>
-                        <RadioButton Content="Settings" Style="{StaticResource MenuButtonTheme}" Click="SettingsButton_Click"/>
+                        <RadioButton Content="{DynamicResource Main}" Style="{StaticResource MenuButtonTheme}" Click="MainButton_Click"/>
+                        <RadioButton Content="{DynamicResource Open Folder}" Style="{StaticResource MenuButtonTheme}" Click="OpenFolderButton_Click"/>
+                        <RadioButton Content="{DynamicResource Playlists}" Style="{StaticResource MenuButtonTheme}" Click="PlaylistsButton_Click"/>
+                        <RadioButton Content="{DynamicResource Settings}" Style="{StaticResource MenuButtonTheme}" Click="SettingsButton_Click"/>
                     </StackPanel>
                 </DockPanel>
             </Border>
