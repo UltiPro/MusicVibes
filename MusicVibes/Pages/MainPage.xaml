@@ -26,7 +26,7 @@
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}"
                 Background="{DynamicResource BackgroundColor3}" Padding="3,1.5,3,0">
             <DockPanel>
-                <TextBlock DockPanel.Dock="Left" Margin="0,0,1,0" FontWeight="Bold" Foreground="{DynamicResource FontColor1}">Search:</TextBlock>
+                <TextBlock DockPanel.Dock="Left" Margin="0,0,1,0" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Text="{DynamicResource Search}" />
                 <TextBox DockPanel.Dock="Right" Style="{StaticResource SearchBoxTheme}" TextChanged="SearchTextChanged" />
             </DockPanel>
         </Border>
