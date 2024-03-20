@@ -19,7 +19,7 @@
         <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" 
                 BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <TextBlock HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" 
-                       Foreground="{DynamicResource FontColor1}">Settings</TextBlock>
+                       Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRSettings}" />
         </Border>
 
         <Grid Grid.Row="1" Grid.Column="0">
@@ -30,7 +30,7 @@
 
             <Border Grid.Row="0" BorderThickness="0,0,0.5,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor3}">
                 <TextBlock HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"
-                           Foreground="{DynamicResource FontColor1}">Theme</TextBlock>
+                           Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRTheme}" />
             </Border>
 
             <ListView Grid.Row="1" ItemsSource="{Binding themes}" BorderThickness="0,0,1,0" BorderBrush="{DynamicResource BorderColor1}"
@@ -54,7 +54,7 @@
 
             <Border Grid.Row="0" BorderThickness="0.5,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor3}">
                 <TextBlock HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"
-                           Foreground="{DynamicResource FontColor1}">Language</TextBlock>
+                           Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRLanguage}" />
             </Border>
 
             <ListView Grid.Row="1" ItemsSource="{Binding languages}" BorderThickness="0"
