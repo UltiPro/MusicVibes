@@ -35,7 +35,7 @@
 
             <ListView Grid.Row="1" ItemsSource="{Binding themes}" BorderThickness="0,0,1,0" BorderBrush="{DynamicResource BorderColor1}"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                      MouseDoubleClick="Theme_MouseDoubleClick" SelectionChanged="Theme_SelectionChanged">
+                      SelectionChanged="Theme_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="-3,0,0,0">
@@ -59,7 +59,7 @@
 
             <ListView Grid.Row="1" ItemsSource="{Binding languages}" BorderThickness="0"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                      MouseDoubleClick="Language_MouseDoubleClick" SelectionChanged="Language_SelectionChanged">
+                      SelectionChanged="Language_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="-3,0,0,0">
