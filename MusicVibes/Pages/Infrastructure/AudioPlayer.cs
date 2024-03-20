@@ -7,10 +7,10 @@ class AudioPlayer
     private WindowsMediaPlayer WMP;
     private MainPage mainPage;
 
-    public AudioPlayer(MainPage mainPage)
+    public AudioPlayer(MainPage mainPage, int volume)
     {
         WMP = new WindowsMediaPlayer();
-        WMP.settings.volume = 50;
+        WMP.settings.volume = volume;
         WMP.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(TrackEnded);
         this.mainPage = mainPage;
     }
@@ -21,6 +21,7 @@ class AudioPlayer
     public void SkipTrack(int count) => WMP.controls.currentPosition += count;
     public bool IsJustStarted() => WMP.controls.currentPosition < 2.0d ? true : false;
     public void ChangeVolume(int value) => WMP.settings.volume = value;
+    public int GetVolume() => WMP.settings.volume;
     public void Mute(bool value) => WMP.settings.mute = value;
 
     private void TrackEnded(int state)

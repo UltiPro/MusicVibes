@@ -31,12 +31,15 @@ public partial class MainPage : Page
     private string[] extensions = new string[] { "mp3", "wav" };
     private bool isPlaying, isMute, isDragging;
     public ObservableCollection<MusicFile> musicFiles { get; } = new ObservableCollection<MusicFile>();
+    public string? currentPath;
+    public int currentVolume { get => audioPlayer.GetVolume(); }
     public int currentId;
     public bool stopApp;
 
-    public MainPage()
+    public MainPage(int volume, string path)
     {
-        audioPlayer = new AudioPlayer(this);
+        audioPlayer = new AudioPlayer(this, volume);
+        LoadFiles(path);
         theardRefresher = new Thread(() => UpdateTrackDuration());
         deletedMusicFiles = new List<MusicFile>();
         isPlaying = false;
@@ -71,6 +74,8 @@ public partial class MainPage : Page
     {
         try
         {
+            if (!Directory.Exists(path)) return false;
+            currentPath = path;
             musicFiles.Clear();
             WindowsMediaPlayerClass WMPC = new WindowsMediaPlayerClass();
             IWMPMedia iWMPMedia;
