@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="STRMain">Start</system:String>
+    <system:String x:Key="STROpen_Folder">Otwórz Folder</system:String>
+    <system:String x:Key="STRPlaylists">Playlisty</system:String>
+    <system:String x:Key="STRSettings">Ustawienia</system:String>
+    <system:String x:Key="STRQuit">Zamknij</system:String>
+    <system:String x:Key="STRNow_Playing" xml:space="preserve">Odtwarzanie: </system:String>
+    <system:String x:Key="STRId">Nr</system:String>
+    <system:String x:Key="STRName">Nazwa</system:String>
+    <system:String x:Key="STRDuration">Długość</system:String>
+    <system:String x:Key="STRSearch" xml:space="preserve">Szukaj: </system:String>
+    <system:String x:Key="STRAdd_Playlist">Dodaj Playliste</system:String>
+    <system:String x:Key="STRTheme">Motyw</system:String>
+    <system:String x:Key="STRLanguage">Język</system:String>
+</ResourceDictionary>
