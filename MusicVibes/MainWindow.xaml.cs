@@ -24,7 +24,7 @@ public partial class MainWindow : Window
         while (settings.Count < 4) settings.Add(null);
         mainPage = new MainPage(int.TryParse(settings[0], out int vol) ? vol : 50, settings[1] ?? "");
         playlistsPage = new PlaylistsPage();
-        settingsPage = new SettingsPage(settings[2] ?? "Light", settings[3] ?? "English");
+        settingsPage = new SettingsPage(settings[2] ?? "", settings[3] ?? "");
         InitializeComponent();
         MainFrame.Content = mainPage;
         playlistsPage.onPlaylistChange += OpenFolderFromPlaylists;
