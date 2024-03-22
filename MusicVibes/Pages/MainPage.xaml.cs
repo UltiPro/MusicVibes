@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS8602, CS0168
+﻿#pragma warning disable CS8602
 
 using System;
 using System.IO;
@@ -62,7 +62,7 @@ public partial class MainPage : Page
                 folderBrowserDialog.ShowDialog();
                 return LoadFiles(folderBrowserDialog.SelectedPath);
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }
@@ -89,7 +89,7 @@ public partial class MainPage : Page
             }
             return true;
         }
-        catch (Exception e)
+        catch
         {
             return false;
         }
