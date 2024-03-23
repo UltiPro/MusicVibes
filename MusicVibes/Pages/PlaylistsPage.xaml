@@ -34,8 +34,8 @@
                         <Button Grid.Column="1" Style="{StaticResource OpenPlaylistButtonTheme}" 
                                 Width="32" Click="OpenPlaylist"/>
 
-                        <TextBlock Grid.Column="2" Text="{Binding}" FontSize="28" Margin="5,0,0,0"
-                                   Foreground="{DynamicResource FontColor1}" TextTrimming="CharacterEllipsis"/>
+                        <TextBlock Grid.Column="2" Text="{Binding}" FontSize="28" Margin="5,0,0,0" MaxWidth="780"
+                                   Foreground="{DynamicResource FontColor1}" TextWrapping="Wrap"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
