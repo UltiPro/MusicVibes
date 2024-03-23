@@ -33,7 +33,8 @@
                            Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRTheme}" />
             </Border>
 
-            <ListView Grid.Row="1" ItemsSource="{Binding themes}" BorderThickness="0,0,1,0" BorderBrush="{DynamicResource BorderColor1}"
+            <ListView Grid.Row="1" ItemsSource="{Binding themes}" BorderThickness="0,0,1,0" 
+                      BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource WhiteSpecial}"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                       SelectionChanged="Theme_SelectionChanged">
                 <ListView.ItemTemplate>
@@ -57,7 +58,7 @@
                            Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRLanguage}" />
             </Border>
 
-            <ListView Grid.Row="1" ItemsSource="{Binding languages}" BorderThickness="0"
+            <ListView Grid.Row="1" ItemsSource="{Binding languages}" BorderThickness="0" Background="{DynamicResource WhiteSpecial}"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                       SelectionChanged="Language_SelectionChanged">
                 <ListView.ItemTemplate>
