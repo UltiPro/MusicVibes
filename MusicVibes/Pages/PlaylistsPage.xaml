@@ -17,7 +17,7 @@
                        Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRPlaylists}" />
         </Border>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding playlistsPaths}" BorderThickness="0"
+        <ListView Grid.Row="1" ItemsSource="{Binding playlistsPaths}" BorderThickness="0" Background="{DynamicResource WhiteSpecial}"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <ListView.ItemTemplate>
                 <DataTemplate>
