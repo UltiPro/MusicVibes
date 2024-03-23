@@ -30,6 +30,7 @@
 
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="0">
             <ListView ItemsSource="{Binding musicFiles}" BorderThickness="0"
+                      Background="{DynamicResource WhiteSpecial}"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                       MouseDoubleClick="ListView_MouseDoubleClick"
@@ -44,15 +45,18 @@
                             </Grid.ColumnDefinitions>
 
                             <Border Grid.Column="0" BorderThickness="0,0,0.5,0" BorderBrush="{DynamicResource BorderColor1}">
-                                <TextBlock Text="{Binding FileId}" TextAlignment="Center" Padding="1,0,1,0" TextTrimming="CharacterEllipsis"/>
+                                <TextBlock Text="{Binding FileId}" Foreground="{DynamicResource FontColor1}"
+                                           TextAlignment="Center" Padding="1,0,1,0" TextTrimming="CharacterEllipsis"/>
                             </Border>
 
                             <Border Grid.Column="1" BorderThickness="0,0,0.5,0" BorderBrush="{DynamicResource BorderColor1}">
-                                <TextBlock Text="{Binding FileName}" Padding="15,0,15,0" TextTrimming="CharacterEllipsis"/>
+                                <TextBlock Text="{Binding FileName}" Foreground="{DynamicResource FontColor1}"
+                                           Padding="15,0,15,0" TextTrimming="CharacterEllipsis"/>
                             </Border>
 
                             <Border Grid.Column="2">
-                                <TextBlock Text="{Binding FileDurationString}" TextAlignment="Center" Padding="1,0,1,0" TextTrimming="CharacterEllipsis"/>
+                                <TextBlock Text="{Binding FileDurationString}" Foreground="{DynamicResource FontColor1}"
+                                           TextAlignment="Center" Padding="1,0,1,0" TextTrimming="CharacterEllipsis"/>
                             </Border>
                         </Grid>
                     </DataTemplate>
