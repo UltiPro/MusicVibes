@@ -20,7 +20,6 @@ public partial class SettingsPage : Page
         InitializeComponent();
         themes.Add("Light");
         themes.Add("Dark");
-        themes.Add("Grey");
         languages.Add("English");
         languages.Add("French");
         languages.Add("German");
