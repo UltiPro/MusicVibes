@@ -61,8 +61,12 @@
                 </StackPanel>
 
                 <DockPanel DockPanel.Dock="Right" Margin="5,0,5,0">
-                    <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="CurrentDurationInfo">00:00</TextBlock>
-                    <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="16" Margin="0,0,0,2" Name="DurationInfo">00:00</TextBlock>
+                    <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="16" 
+                               Foreground="{DynamicResource FontColor1}"
+                               Margin="0,0,0,2" Name="CurrentDurationInfo">00:00</TextBlock>
+                    <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" FontSize="16"
+                               Foreground="{DynamicResource FontColor1}"
+                               Margin="0,0,0,2" Name="DurationInfo">00:00</TextBlock>
                     <Slider DockPanel.Dock="Right" Name="DurationSlider" Width="430" VerticalAlignment="Center" Minimum="0"
                             Style="{StaticResource AppSlider}" Thumb.DragStarted="DurationChangedStart" Thumb.DragCompleted="DurationChangedEnd" />
                 </DockPanel>
