@@ -23,6 +23,7 @@
                         <Label HorizontalContentAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,-5,0,0">Music Vibes</Label>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Margin="15,0,15,0">
+                        <RadioButton Content="__" Style="{StaticResource MenuButtonTheme}" Click="MinimizeButton_Click"/>
                         <RadioButton Content="{DynamicResource STRQuit}" Style="{StaticResource CloseButtonTheme}" Click="QuitButton_Click"/>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Margin="15,15,15,0">
