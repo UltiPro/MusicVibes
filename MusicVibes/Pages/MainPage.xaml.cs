@@ -134,7 +134,7 @@ public partial class MainPage : Page
     private void SkipStart(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : !audioPlayer.IsJustStarted() ? currentId : --currentId < 0 ? (musicFiles.Count - 1) : currentId);
     private void Skip10Start(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : -10);
 
-    private void StartPauseMusic(object sender, RoutedEventArgs e)
+    public void StartPauseMusic(object sender, RoutedEventArgs e)
     {
         if (currentId == -1) ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : 0);
         else

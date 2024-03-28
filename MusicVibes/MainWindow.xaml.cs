@@ -68,4 +68,12 @@ public partial class MainWindow : Window
     private void MinimizeButton_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
 
     public void OpenFolderFromPlaylists(object sender, RoutedEventArgs e, string path) { if (mainPage.LoadFilesFromPlaylists(path)) MainFrame.Content = mainPage; }
+
+    private void Window_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+            mainPage.ChangeMusic(sender, e, 0);
+        else if (e.Key == Key.Space)
+            mainPage.StartPauseMusic(sender, e);
+    }
 }
