@@ -39,10 +39,15 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
 
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor3}">
-            <Button Style="{StaticResource AddPlaylistButtonTheme}" Click="AddPlaylist">
+            <Button Style="{StaticResource AddPlaylistButtonTheme}" Click="AddPlaylist" Focusable="False">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Image Source="pack://application:,,,/Images/Management/Add.png" Width="24"/>
                     <Label FontSize="20" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Content="{DynamicResource STRAdd_Playlist}" />

@@ -8,7 +8,7 @@ namespace MusicVibes.UserControls;
 
 public partial class MusicList : UserControl
 {
-    private int? selectedMusic = null;
+    public int? selectedMusic { get; private set; } = null;
     public delegate void OnMusicChange(object sender, RoutedEventArgs e, int id);
     public event OnMusicChange onMusicChange;
 

@@ -34,25 +34,25 @@
         <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
             <DockPanel VerticalAlignment="Center">
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
-                    <Button Style="{StaticResource ControlButtonTheme}" Click="SkipStart" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="SkipStart" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Focusable="False">
                         <Image Source="pack://application:,,,/Images/Controls/SkipStart.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
-                    <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10Start" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10Start" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Focusable="False">
                         <Image Source="pack://application:,,,/Images/Controls/Skip10Start.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
-                    <Button Style="{StaticResource ControlButtonTheme}" Click="StartPauseMusic" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="StartPauseMusic" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Name="StartStopButton">
                         <Image Source="pack://application:,,,/Images/Controls/Play.png" Name="StartStopImage" Style="{StaticResource PlayerControlImage}" />
                     </Button>
-                    <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10End" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10End" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Focusable="False">
                         <Image Source="pack://application:,,,/Images/Controls/Skip10End.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
-                    <Button Style="{StaticResource ControlButtonTheme}" Click="SkipEnd" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="SkipEnd" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Focusable="False">
                         <Image Source="pack://application:,,,/Images/Controls/SkipEnd.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
                 </StackPanel>
 
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="0,0,5,0">
-                    <Button Style="{StaticResource ControlButtonTheme}" Click="MuteUnmuteVolume" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave">
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="MuteUnmuteVolume" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Focusable="False">
                         <Image Source="pack://application:,,,/Images/Controls/Volume.png" Name="VolumeImage" Style="{StaticResource PlayerControlImage}"/>
                     </Button>
                     <Slider Name="VolumeSlider" Width="100" VerticalAlignment="Center" AutoToolTipPlacement="TopLeft"

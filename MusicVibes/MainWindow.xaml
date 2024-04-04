@@ -23,14 +23,14 @@
                         <Label HorizontalContentAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="{DynamicResource FontColor1}" Margin="0,-5,0,0">Music Vibes</Label>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Margin="15,0,15,0">
-                        <RadioButton Content="__" Style="{StaticResource MenuButtonTheme}" Click="MinimizeButton_Click"/>
-                        <RadioButton Content="{DynamicResource STRQuit}" Style="{StaticResource CloseButtonTheme}" Click="QuitButton_Click"/>
+                        <RadioButton Content="__" Style="{StaticResource MenuButtonTheme}" Click="MinimizeButton_Click" Focusable="False" Cursor="Hand" />
+                        <RadioButton Content="{DynamicResource STRQuit}" Style="{StaticResource CloseButtonTheme}" Click="QuitButton_Click" Focusable="False"/>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Margin="15,15,15,0">
-                        <RadioButton Content="{DynamicResource STRMain}" Style="{StaticResource MenuButtonTheme}" Click="MainButton_Click"/>
-                        <RadioButton Content="{DynamicResource STROpen_Folder}" Style="{StaticResource MenuButtonTheme}" Click="OpenFolderButton_Click"/>
-                        <RadioButton Content="{DynamicResource STRPlaylists}" Style="{StaticResource MenuButtonTheme}" Click="PlaylistsButton_Click"/>
-                        <RadioButton Content="{DynamicResource STRSettings}" Style="{StaticResource MenuButtonTheme}" Click="SettingsButton_Click"/>
+                        <RadioButton Content="{DynamicResource STRMain}" Style="{StaticResource MenuButtonTheme}" Click="MainButton_Click" Focusable="False"/>
+                        <RadioButton Content="{DynamicResource STROpen_Folder}" Style="{StaticResource MenuButtonTheme}" Click="OpenFolderButton_Click" Focusable="False"/>
+                        <RadioButton Content="{DynamicResource STRPlaylists}" Style="{StaticResource MenuButtonTheme}" Click="PlaylistsButton_Click" Focusable="False"/>
+                        <RadioButton Content="{DynamicResource STRSettings}" Style="{StaticResource MenuButtonTheme}" Click="SettingsButton_Click" Focusable="False"/>
                     </StackPanel>
                 </DockPanel>
             </Border>
