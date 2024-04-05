@@ -40,7 +40,8 @@
                     <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10Start" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Focusable="False">
                         <Image Source="pack://application:,,,/Images/Controls/Skip10Start.png" Style="{StaticResource PlayerControlImage}" />
                     </Button>
-                    <Button Style="{StaticResource ControlButtonTheme}" Click="StartPauseMusic" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Name="StartStopButton">
+                    <Button Style="{StaticResource ControlButtonTheme}" Click="StartPauseMusic" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" 
+                            Name="StartStopButton" FocusVisualStyle="{StaticResource FocusButtonTheme}">
                         <Image Source="pack://application:,,,/Images/Controls/Play.png" Name="StartStopImage" Style="{StaticResource PlayerControlImage}" />
                     </Button>
                     <Button Style="{StaticResource ControlButtonTheme}" Click="Skip10End" MouseEnter="ControlMouseEnter" MouseLeave="ControlMouseLeave" Focusable="False">
