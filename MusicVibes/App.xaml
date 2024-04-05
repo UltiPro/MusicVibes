@@ -26,6 +26,7 @@
                 <ResourceDictionary Source="Themes/AddPlaylistButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/DeletePlaylistButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/OpenPlaylistButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/FocusButtonTheme.xaml" />
                 <!-- Has to be last -->
                 <ResourceDictionary Source="Languages/English.xaml"/>
                 <!-- END -->
