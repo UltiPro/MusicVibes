@@ -42,6 +42,21 @@
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Focusable" Value="False"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <Border Name="_Border" Padding="4,2,0,2" BorderThickness="1">
+                                    <ContentPresenter HorizontalAlignment="Left"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter TargetName="_Border" Property="Background" Value="{DynamicResource BackgroundColor1}"/>
+                                        <Setter TargetName="_Border" Property="BorderBrush" Value="{DynamicResource BackgroundColor3}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
