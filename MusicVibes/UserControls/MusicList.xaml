@@ -29,7 +29,7 @@
         </Border>
 
         <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="0">
-            <ListView ItemsSource="{Binding musicFiles}" BorderThickness="0"
+            <ListView Name="List" ItemsSource="{Binding musicFiles}" BorderThickness="0"
                       Background="{DynamicResource WhiteSpecial}"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                       ScrollViewer.HorizontalScrollBarVisibility="Hidden"
@@ -61,6 +61,27 @@
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <EventSetter Event="PreviewKeyDown" Handler="ListViewItem_SpacePreviewKeyDown"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border Name="_Border" Padding="4,2,-2,2" SnapsToDevicePixels="true" BorderThickness="1">
+                                        <ContentPresenter/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter TargetName="_Border" Property="Background" Value="{DynamicResource BackgroundColor1}"/>
+                                            <Setter TargetName="_Border" Property="BorderBrush" Value="{DynamicResource BackgroundColor3}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </Border>
     </Grid>
