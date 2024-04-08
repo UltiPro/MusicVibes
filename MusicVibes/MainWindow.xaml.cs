@@ -10,7 +10,7 @@ namespace MusicVibes;
 
 public partial class MainWindow : Window
 {
-    private const string settingsFilePath = "settings";
+    private readonly string settingsFilePath = AppContext.BaseDirectory + "/settings";
     public MainPage mainPage;
     public PlaylistsPage playlistsPage;
     public SettingsPage settingsPage;
@@ -76,4 +76,6 @@ public partial class MainWindow : Window
         else if (e.Key == Key.Space)
             mainPage.StartPauseMusic(sender, e);
     }
+
+    public void ChangeFocus(object sender, KeyEventArgs e) => mainPage.ChangeFocus(sender, e);
 }
