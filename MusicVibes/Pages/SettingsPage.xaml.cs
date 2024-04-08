@@ -1,6 +1,4 @@
-﻿#pragma warning disable 8602
-
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,14 +38,14 @@ public partial class SettingsPage : Page
     private void Theme_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         Application.Current.Resources.MergedDictionaries.First().Source =
-            new Uri($"pack://application:,,,/Themes/Colors/{themes[(sender as ListView).SelectedIndex]}.xaml");
-        selectedTheme = themes[(sender as ListView).SelectedIndex];
+            new Uri($"pack://application:,,,/Themes/Colors/{themes[ListViewThemes.SelectedIndex]}.xaml");
+        selectedTheme = themes[ListViewThemes.SelectedIndex];
     }
 
     private void Language_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         Application.Current.Resources.MergedDictionaries.Last().Source =
-            new Uri($"pack://application:,,,/Languages/{languages[(sender as ListView).SelectedIndex]}.xaml");
-        selectedLanguage = languages[(sender as ListView).SelectedIndex];
+            new Uri($"pack://application:,,,/Languages/{languages[ListViewLanguages.SelectedIndex]}.xaml");
+        selectedLanguage = languages[ListViewLanguages.SelectedIndex];
     }
 }
