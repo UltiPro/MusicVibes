@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource BackgroundColor2}">
-            <TextBlock HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"
+            <TextBlock Style="{StaticResource TextBlockApp}" FontSize="24"
                        Foreground="{DynamicResource FontColor1}" Text="{DynamicResource STRPlaylists}" />
         </Border>
 
