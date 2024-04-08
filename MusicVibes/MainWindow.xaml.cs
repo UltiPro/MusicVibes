@@ -76,6 +76,4 @@ public partial class MainWindow : Window
         else if (e.Key == Key.Space)
             mainPage.StartPauseMusic(sender, e);
     }
-
-    public void ChangeFocus(object sender, KeyEventArgs e) => mainPage.ChangeFocus(sender, e);
 }
