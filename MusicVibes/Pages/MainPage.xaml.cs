@@ -50,6 +50,7 @@ public partial class MainPage : Page
         InitializeComponent();
         VolumeSlider.Value = volume;
         MusicList.onMusicChange += ChangeMusic;
+        MusicList.onFocusChange += ChangeFocus;
         theardRefresher.Start();
     }
 
@@ -104,7 +105,7 @@ public partial class MainPage : Page
                 if (isPlaying || DurationSlider.Value != audioPlayer.CurrentTrackDuration)
                 {
                     CurrentDurationInfo.Text = audioPlayer.CurrentTrackDurationString != string.Empty ? audioPlayer.CurrentTrackDurationString : "00:00";
-                    if (!isDragging) DurationSlider.Value = audioPlayer.CurrentTrackDuration;
+                    DurationSlider.Value = audioPlayer.CurrentTrackDuration;
                 }
             });
             Thread.Sleep(100);
@@ -122,6 +123,7 @@ public partial class MainPage : Page
         DurationSlider.Maximum = musicFiles[currentId].FileDuration;
         DurationSlider.Value = 0.0d;
         DurationInfo.Text = musicFiles[currentId].FileDurationString;
+        MusicList.SetItemFocus(currentId);
     }
 
     private void SearchTextChanged(object sender, TextChangedEventArgs e)
@@ -155,12 +157,25 @@ public partial class MainPage : Page
 
     private void Skip10End(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : 10);
     public void SkipEnd(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : ++currentId >= musicFiles.Count ? 0 : currentId);
-    private void DurationChangedStart(object sender, DragStartedEventArgs e) => isDragging = true;
+    private void DurationChangedStart(object sender, DragStartedEventArgs e)
+    {
+        isDragging = true;
+        if (isPlaying) audioPlayer.Pause();
+    }
 
     private void DurationChangedEnd(object sender, DragCompletedEventArgs e)
     {
         isDragging = false;
-        audioPlayer.CurrentTrackDuration = DurationSlider.Value;
+        if (isPlaying) audioPlayer.Play();
+    }
+
+    private void DurationChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    {
+        if (isDragging)
+        {
+            audioPlayer.CurrentTrackDuration = DurationSlider.Value;
+            CurrentDurationInfo.Text = audioPlayer.CurrentTrackDurationString != string.Empty ? audioPlayer.CurrentTrackDurationString : "00:00";
+        }
     }
 
     private void MuteUnmuteVolume(object sender, RoutedEventArgs e)
@@ -174,4 +189,18 @@ public partial class MainPage : Page
     private void VolumeChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => audioPlayer.ChangeVolume(Convert.ToInt32((sender as Slider).Value));
     private void ControlMouseEnter(object sender, MouseEventArgs e) => (sender as Button).BeginAnimation(Button.OpacityProperty, new DoubleAnimation(1.0d, 0.65d, TimeSpan.FromSeconds(0.2d)));
     private void ControlMouseLeave(object sender, MouseEventArgs e) => (sender as Button).BeginAnimation(Button.OpacityProperty, new DoubleAnimation(0.65d, 1d, TimeSpan.FromSeconds(0.2d)));
+
+    private void StartStopButton_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter)
+        {
+            e.Handled = true;
+            Focus();
+        }
+    }
+
+    public void ChangeFocus(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Space) StartStopButton.Focus();
+    }
 }
