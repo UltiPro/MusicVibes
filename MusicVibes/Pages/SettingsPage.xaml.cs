@@ -12,14 +12,14 @@ public partial class SettingsPage : Page
 {
     public ObservableCollection<string> themes { get; } = new ObservableCollection<string>();
     public ObservableCollection<string> languages { get; } = new ObservableCollection<string>();
-    public string selectedTheme { get; private set; } = "Light";
+    public string selectedTheme { get; private set; } = "Dark";
     public string selectedLanguage { get; private set; } = "English";
 
     public SettingsPage(string theme, string language)
     {
         InitializeComponent();
-        themes.Add("Light");
         themes.Add("Dark");
+        themes.Add("Light");
         languages.Add("English");
         languages.Add("French");
         languages.Add("German");
@@ -33,6 +33,8 @@ public partial class SettingsPage : Page
             new Uri($"pack://application:,,,/Themes/Colors/{selectedTheme}.xaml");
         Application.Current.Resources.MergedDictionaries.Last().Source =
             new Uri($"pack://application:,,,/Languages/{selectedLanguage}.xaml");
+        ListViewThemes.SelectedIndex = themes.IndexOf(selectedTheme);
+        ListViewLanguages.SelectedIndex = languages.IndexOf(selectedLanguage);
     }
 
     private void Theme_SelectionChanged(object sender, SelectionChangedEventArgs e)
