@@ -1,2 +1,2 @@
 # MusicVibes
-Desktop music player application created by Patryk 'UltiPro' Wójtowicz using .NET WPF.
+MusicVibes created by Patryk 'UltiPro' Wójtowicz using .NET WPF.
