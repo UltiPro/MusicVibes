@@ -36,7 +36,8 @@
             <ListView Grid.Row="1" ItemsSource="{Binding themes}" BorderThickness="0,0,0.5,0" 
                       BorderBrush="{DynamicResource BorderColor1}" Background="{DynamicResource WhiteSpecial}"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                      SelectionChanged="Theme_SelectionChanged" Name="ListViewThemes">
+                      SelectionChanged="Theme_SelectionChanged" Name="ListViewThemes"
+                      ItemContainerStyle="{StaticResource ListViewItemContainerStyleTheme}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="-3,0,0,0">
@@ -44,26 +45,6 @@
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="ListViewItem">
-                                    <Border Name="_Border" Padding="4,2,-2,2" SnapsToDevicePixels="true" BorderThickness="1">
-                                        <ContentPresenter/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsSelected" Value="true">
-                                            <Setter TargetName="_Border" Property="Background" Value="{DynamicResource BackgroundColor1}"/>
-                                            <Setter TargetName="_Border" Property="BorderBrush" Value="{DynamicResource BackgroundColor3}"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
 
@@ -80,7 +61,8 @@
 
             <ListView Grid.Row="1" ItemsSource="{Binding languages}" BorderThickness="0.5,0,0,0" Background="{DynamicResource WhiteSpecial}"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                      SelectionChanged="Language_SelectionChanged" Name="ListViewLanguages">
+                      SelectionChanged="Language_SelectionChanged" Name="ListViewLanguages"
+                      ItemContainerStyle="{StaticResource ListViewItemContainerStyleTheme}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="-3,0,0,0">
@@ -88,26 +70,6 @@
                         </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="Cursor" Value="Hand"/>
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="ListViewItem">
-                                    <Border Name="_Border" Padding="4,2,-2,2" SnapsToDevicePixels="true" BorderThickness="1">
-                                        <ContentPresenter/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsSelected" Value="true">
-                                            <Setter TargetName="_Border" Property="Background" Value="{DynamicResource BackgroundColor1}"/>
-                                            <Setter TargetName="_Border" Property="BorderBrush" Value="{DynamicResource BackgroundColor3}"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
     </Grid>
