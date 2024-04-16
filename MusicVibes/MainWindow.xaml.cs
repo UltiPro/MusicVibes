@@ -75,5 +75,25 @@ public partial class MainWindow : Window
             mainPage.ChangeMusic(sender, e, mainPage.MusicList.selectedMusic ?? 0);
         else if (e.Key == Key.Space)
             mainPage.StartPauseMusic(sender, e);
+        else if (e.Key == Key.F1)
+            mainPage.UnmuteVolume(sender, e);
+        else if (e.Key == Key.F2)
+            mainPage.VolumeSlider.Value -= 1;
+        else if (e.Key == Key.F3)
+            mainPage.VolumeSlider.Value += 1;
+        else if (e.Key == Key.F4)
+            mainPage.MuteVolume(sender, e);
+        else if (e.Key == Key.F5)
+            mainPage.SkipStart(sender, e);
+        else if (e.Key == Key.F6)
+            mainPage.Skip10Start(sender, e);
+        else if (e.Key == Key.F7)
+            mainPage.StartPauseMusic(sender, e);
+        else if (e.Key == Key.F8)
+            mainPage.Skip10End(sender, e);
+        else if (e.Key == Key.F9)
+            mainPage.SkipEnd(sender, e);
+        else if (e.Key == Key.Escape)
+            QuitButton_Click(sender, e);
     }
 }
