@@ -133,8 +133,8 @@ public partial class MainPage : Page
         foreach (MusicFile musicFile in deletedMusicFiles) musicFiles.RemoveAt(musicFiles.IndexOf(musicFile));
     }
 
-    private void SkipStart(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : !audioPlayer.IsJustStarted() ? currentId : --currentId < 0 ? (musicFiles.Count - 1) : currentId);
-    private void Skip10Start(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : -10);
+    public void SkipStart(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : !audioPlayer.IsJustStarted() ? currentId : --currentId < 0 ? (musicFiles.Count - 1) : currentId);
+    public void Skip10Start(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : -10);
 
     public void StartPauseMusic(object sender, RoutedEventArgs e)
     {
@@ -155,7 +155,7 @@ public partial class MainPage : Page
         }
     }
 
-    private void Skip10End(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : 10);
+    public void Skip10End(object sender, RoutedEventArgs e) => audioPlayer.SkipTrack(currentId == -1 ? 0 : 10);
     public void SkipEnd(object sender, RoutedEventArgs e) => ChangeMusic(sender, e, musicFiles.Count == 0 ? -1 : ++currentId >= musicFiles.Count ? 0 : currentId);
     private void DurationChangedStart(object sender, DragStartedEventArgs e)
     {
@@ -184,6 +184,16 @@ public partial class MainPage : Page
         audioPlayer.Mute(isMute);
         if (isMute) VolumeImage.Source = muteVolume;
         else VolumeImage.Source = unmuteVolume;
+    }
+
+    public void MuteVolume(object sender, RoutedEventArgs e)
+    {
+        if (!isMute) MuteUnmuteVolume(sender, e);
+    }
+
+    public void UnmuteVolume(object sender, RoutedEventArgs e)
+    {
+        if (isMute) MuteUnmuteVolume(sender, e);
     }
 
     private void VolumeChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => audioPlayer.ChangeVolume(Convert.ToInt32((sender as Slider).Value));
