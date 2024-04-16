@@ -16,7 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="Images\Controls\Add.png" />
 		<None Remove="Images\Controls\Pause.png" />
 		<None Remove="Images\Controls\Play.png" />
 		<None Remove="Images\Controls\Skip10End.png" />
