@@ -32,4 +32,16 @@ Compressed ready to use program:
 
 # Preview
 
-![cos Preview](/screenshots/) ///
+![Main 1 Preview](/screenshots/Main1.png)
+
+![Main 2 Preview](/screenshots/Main2.png)
+
+![Main 3 Preview](/screenshots/Main3.png)
+
+![Main 4 Preview](/screenshots/Main4.png)
+
+![Playlists 1 Preview](/screenshots/Playlists1.png)
+
+![Settings 1 Preview](/screenshots/Settings1.png)
+
+![Settings 2 Preview](/screenshots/Settings2.png)
