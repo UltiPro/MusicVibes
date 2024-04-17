@@ -1,7 +1,7 @@
 # MusicVibes
 MusicVibes created by Patryk 'UltiPro' Wójtowicz using .NET C# WPF.
 
-Window application for playing music (mp3, wav). In addition to the basic functions, the application allows you to save, delete and open playlists (folders containing music files). The application also has settings that allow you to change the theme and language (translations were made by Google). Application is dedicated for Windows OS only (tested on Windows 10 and Windows 11). Project developed in .NET 6.
+Window application for playing music (mp3, wav). In addition to the basic functions, the application allows you to save, delete and open playlists (folders containing music files). The application has also settings that allow you to change the theme and language (translations were made by Google). Application is dedicated for Windows OS only (tested on Windows 10 and Windows 11). Project developed in .NET 6.
 
 # Dependencies and Usage
 
@@ -12,13 +12,13 @@ Dependencies:
   <li>Ookii.Dialogs.Wpf 5.0.1</li>
 </ul>
 
-Run the app by Visual Studio or by commands below:
+Run the app by Visual Studio or commands below:
 
 > cd "/MusicVibes"
 
 > dotnet run
 
-Publish the app by Visual Studio or by commands below:
+Publish the app by Visual Studio or commands below:
 
 > cd "/MusicVibes"
 
