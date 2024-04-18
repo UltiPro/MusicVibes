@@ -45,3 +45,11 @@ Compressed ready to use program:
 ![Settings 1 Preview](/screenshots/Settings1.png)
 
 ![Settings 2 Preview](/screenshots/Settings2.png)
+
+![Animation 1 Preview](/screenshots/Animation1.gif)
+
+![Animation 2 Preview](/screenshots/Animation2.gif)
+
+![Animation 3 Preview](/screenshots/Animation3.gif)
+
+![Animation 4 Preview](/screenshots/Animation4.gif)
